@@ -1,0 +1,122 @@
+{
+  "basics": {
+    "name": "Atnyashev Marsel",
+    "label": "Coder",
+    "picture": "",
+    "email": "atn@marsel.name",
+    "phone": "+7 912 587 01 77",
+    "website": "marsel.name",
+    "summary": "I'm a passionate Russia based developer with 6 years of experience from web to app development.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "",
+      "countryCode": "",
+      "region": ""
+    },
+    "profiles": []
+  },
+  "work": [
+    {
+      "company": "TenderBerry.ru",
+      "position": "co-founder",
+      "website": "tenderberry.ru",
+      "startDate": "2014-11-01",
+      "endDate": "2015-10-31",
+      "summary": "I co-founded a startup (search engine for government procurements).",
+      "highlights": [
+        "web server powered by Go",
+        "web applicaition written in React.js using es6, websockets and web workers",
+        "sales via phone and email"
+      ]
+    },
+    {
+      "company": "InitGroup",
+      "position": "lead developer",
+      "website": "initpro.ru",
+      "startDate": "2012-08-01",
+      "endDate": "2014-09-01",
+      "summary": "I developed most of their software from scratch. I was in charge of all the technical problems and hiring coders.",
+      "highlights": [
+        "web application using Google Closure",
+        "busy full-text search powered by Sphinx",
+        "custom web CRM using Require.js, Handlebars, Bootstrap",
+        "monitoring servers and services by zabbix",
+        "hiring developers"
+      ]
+    },
+    {
+      "company": "Mobak",
+      "position": "developer",
+      "website": "mobak.ru",
+      "startDate": "2010-12-01",
+      "endDate": "2012-08-01",
+      "summary": "I was involved in varios projects: from web to mobile applications and business intelligence.",
+      "highlights": [
+        "improving mobile game website", 
+        "creation of company's website using MODx",
+        "creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)",
+        "development of a mobile app for sending sms via the Internet using MoSync C++ SDK",
+        "prototypes runing on Marmalade SDK",
+        "set up workflow and analytics using Pentaho"
+      ]
+    },
+    {
+      "company": "Dobrohost",
+      "position": "developer",
+      "website": "dobrohost.ru",
+      "startDate": "2009-07-01",
+      "endDate": "2010-12-01",
+      "summary": "It was a web-hosting company where I learned the power of regular expressions.",
+      "highlights": [
+        "development of a control panel (Perl, Mysql, HTML+CSS)",
+        "development of an internet auction in PHP. I later rewrote it to Perl."
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Server",
+      "level": "",
+      "keywords": [
+        "Go",
+        "PHP",
+        "Linux"
+      ]
+    },
+    {
+      "name": "Client",
+      "level": "",
+      "keywords": [
+        "JavaScript",
+        "React.js"
+      ]
+    },
+    {
+      "name": "Data",
+      "level": "",
+      "keywords": [
+        "MySQL",
+        "Sphinx",
+        "PostgreSQL",
+        "Redis"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Intermediate"
+    },
+    {
+      "language": "Russian",
+      "fluency": "native"
+    }
+  ],
+  "interests": [],
+  "references": []
+}
