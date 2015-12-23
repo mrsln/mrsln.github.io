@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Atnyashev Marsel",
-    "label": "Coder",
+    "label": "Developer",
     "picture": "",
     "email": "atn@marsel.name",
     "phone": "+7 912 587 01 77",
@@ -18,10 +18,22 @@
   },
   "work": [
     {
+      "company": "Mobile Active LLC",
+      "position": "developer",
+      "website": "mobak.ru",
+      "startDate": "2014-11-01",
+      "endDate": "current",
+      "summary": "Helped the business to be more effecient and reliable using cutting edge technologies.",
+      "highlights": [
+        "set up monitoring system that can recover and alert",
+        "developed a backoffice using Polymer and Yii2"
+      ]
+    },
+    {
       "company": "TenderBerry.ru",
       "position": "co-founder",
       "website": "tenderberry.ru",
-      "startDate": "2014-11-01",
+      "startDate": "2015-11-01",
       "endDate": "2015-10-31",
       "summary": "I co-founded a startup (search engine for government procurements).",
       "highlights": [
@@ -46,7 +58,7 @@
       ]
     },
     {
-      "company": "Mobak",
+      "company": "Mobile Active LLC",
       "position": "developer",
       "website": "mobak.ru",
       "startDate": "2010-12-01",
