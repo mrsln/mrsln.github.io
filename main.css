@@ -23,16 +23,27 @@ body {
   border: 1px solid #DBD3D8;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  width: 300px;
-  padding: 20px;
+  width: 350px;
+  padding: 10px;
   text-align: center;
   background-color: white;
-  margin-top: -10%;
+  position: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .name {
-  margin-bottom: 5px;
-  line-height: 1.6;
+  margin: 5px 0;
+}
+
+.face {
+  width: 128px;
+  height: 128px;
+  border-radius: 100%;
+  margin-top: -90px;
+  align-self: center;
+  border: 2px solid white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 ul.img-links {
