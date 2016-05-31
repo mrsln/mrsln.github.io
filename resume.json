@@ -1,17 +1,18 @@
 {
   "basics": {
-    "name": "Atnyashev Marsel",
+    "name": "Marsel Atnyashev",
     "label": "Developer",
     "picture": "",
     "email": "atn@marsel.name",
     "phone": "+7 912 587 01 77",
+    "skype": "marcel.atn",
     "website": "marsel.name",
-    "summary": "I'm a passionate Russia based developer with 6 years of experience from web to app development.",
+    "summary": "I'm a passionate Russia based developer with 6 years of experience from web to app development. In recent years I prefer to use Javascript (react.js, node.js) and Go.",
     "location": {
-      "address": "",
+      "address": "Russia, Perm",
       "postalCode": "",
-      "city": "",
-      "countryCode": "",
+      "city": "Perm",
+      "countryCode": "ru",
       "region": ""
     },
     "profiles": []
@@ -24,7 +25,8 @@
       "startDate": "2015-11-01",
       "summary": "Helped the business to be more effecient and reliable using cutting edge technologies.",
       "highlights": [
-        "implementd a monitoring system using Node.js with 60% code coverage",
+        "created a control panel using React.js",
+        "implemented a monitoring system using Node.js with 60% code coverage",
         "developed a backoffice using Polymer and Yii2"
       ]
     },
@@ -34,10 +36,11 @@
       "website": "tenderberry.ru",
       "startDate": "2014-11-01",
       "endDate": "2015-10-31",
-      "summary": "I co-founded a startup (search engine for government procurements).",
+      "summary": "I co-founded a startup (search engine for government procurements). I wrote it as single page application using React.js which talked to a Go backend that used Postgresql as a store and Sphinx as a search engine.",
       "highlights": [
-        "web server powered by Go",
+        "services powered by Go and covered with unit tests",
         "web applicaition written in React.js using es6, websockets and web workers",
+        "fast search with complex queries using Sphinx",
         "sales via phone and email"
       ]
     },
@@ -47,10 +50,10 @@
       "website": "initpro.ru",
       "startDate": "2012-08-01",
       "endDate": "2014-09-01",
-      "summary": "I developed most of their software from scratch. I was in charge of all the technical problems and hiring coders.",
+      "summary": "I developed most of their software from scratch. I was in charge of all the technical problems and hiring coders. The frontend is built with Javascript as a single page application, which talks to a php backend that powered by Mysql and collections of Sphinx servers.",
       "highlights": [
         "web application using Google Closure",
-        "busy full-text search powered by Sphinx",
+        "busy (scaled) full-text search powered by Sphinx",
         "custom web CRM using Require.js, Handlebars, Bootstrap",
         "monitoring servers and services by zabbix",
         "hiring developers"
