@@ -25,7 +25,8 @@
       "startDate": "2015-11-01",
       "summary": "Helped the business to be more effecient and reliable using cutting edge technologies.",
       "highlights": [
-        "created a control panel using React.js",
+        "a service for collecting user data using Go",
+        "created a control panel and a level editor using React.js",
         "implemented a monitoring system using Node.js with 60% code coverage",
         "developed a backoffice using Polymer and Yii2"
       ]
