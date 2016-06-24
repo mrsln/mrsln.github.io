@@ -6,14 +6,13 @@
     "email": "atn@marsel.name",
     "phone": "+7 912 587 01 77",
     "skype": "marcel.atn",
-    "website": "marsel.name",
-    "summary": "I'm a passionate Russia based developer with 6 years of experience from web to app development. In recent years I prefer to use Javascript (react.js, node.js) and Go.",
+    "summary": "Full-stack web developer. Specializing in single page applications. Latest tools of choice: React.js and Go.",
     "location": {
       "address": "Russia, Perm",
       "postalCode": "",
       "city": "Perm",
-      "countryCode": "ru",
-      "region": ""
+      "countryCode": "",
+      "region": "Russia"
     },
     "profiles": []
   },
@@ -23,9 +22,8 @@
       "position": "developer",
       "website": "mobak.ru",
       "startDate": "2015-11-01",
-      "summary": "Helped the business to be more effecient and reliable using cutting edge technologies.",
       "highlights": [
-        "a service for collecting user data using Go",
+        "built a service for collecting user data using Go",
         "created a control panel and a level editor using React.js",
         "implemented a monitoring system using Node.js with 60% code coverage",
         "developed a backoffice using Polymer and Yii2"
@@ -37,11 +35,10 @@
       "website": "tenderberry.ru",
       "startDate": "2014-11-01",
       "endDate": "2015-10-31",
-      "summary": "I co-founded a startup (search engine for government procurements). I wrote it as single page application using React.js which talked to a Go backend that used Postgresql as a store and Sphinx as a search engine.",
       "highlights": [
-        "services powered by Go and covered with unit tests",
+        "services and backend powered by Go and covered with unit tests",
         "web applicaition written in React.js using es6, websockets and web workers",
-        "fast search with complex queries using Sphinx",
+        "fast search with complex queries (ranking, facet search) using Sphinx",
         "sales via phone and email"
       ]
     },
@@ -51,12 +48,11 @@
       "website": "initpro.ru",
       "startDate": "2012-08-01",
       "endDate": "2014-09-01",
-      "summary": "I developed most of their software from scratch. I was in charge of all the technical problems and hiring coders. The frontend is built with Javascript as a single page application, which talks to a php backend that powered by Mysql and collections of Sphinx servers.",
       "highlights": [
-        "web application using Google Closure",
+        "web application using Google Closure and PHP",
         "busy (scaled) full-text search powered by Sphinx",
         "custom web CRM using Require.js, Handlebars, Bootstrap",
-        "monitoring servers and services by zabbix",
+        "monitoring servers and services by Zabbix",
         "hiring developers"
       ]
     },
@@ -66,9 +62,8 @@
       "website": "mobak.ru",
       "startDate": "2010-12-01",
       "endDate": "2012-08-01",
-      "summary": "I was involved in varios projects: from web to mobile applications and business intelligence.",
       "highlights": [
-        "improving mobile game website", 
+        "improving mobile game website written in PHP",
         "creation of company's website using MODx",
         "creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)",
         "development of a mobile app for sending sms via the Internet using MoSync C++ SDK",
@@ -82,7 +77,6 @@
       "website": "dobrohost.ru",
       "startDate": "2009-07-01",
       "endDate": "2010-12-01",
-      "summary": "It was a web-hosting company where I learned the power of regular expressions.",
       "highlights": [
         "development of a control panel (Perl, Mysql, HTML+CSS)",
         "development of an internet auction in PHP. I later rewrote it to Perl."

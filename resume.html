@@ -2,448 +2,322 @@
 <html>
 	<head>
 	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, user-scalable=no, minimal-ui'>
 	
 	<title>Marsel Atnyashev</title>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-	
-	<style type="text/css">
-	@import url(
-	https://fonts.googleapis.com/css?family=Lato:400,700
-);
-body {
-	background: #fff;
-	font-family: Lato, sans-serif;
-	margin: 0 0 80px;
-}
-a {
-	color: #2ecc71;
-}
-a:focus,
-a:hover {
-	color: #f1c40f;
-	text-decoration: none;
-}
-p {
-	line-height: 1.5;
-	margin: 0;
-}
-p + p {
-	margin-top: 10px;
-}
-h1,
-h2,
-h3,
-h4 {
-	margin-top: 0
-}
-section {
-	margin-top: 30px;
-}
-li {
-	line-height: 1.8;
-	list-style: none;
-}
-li:before {
-	content: "\f052";
-	float: left;
-	font: 13px Octicons;
-	margin-top: 6px;
-	margin-left: -20px;
-	opacity: .1;
-	position: absolute;
-}
-blockquote {
-	border-left: 5px solid #e7e9ec;
-	font-size: 14px;
+
+	<style>
+	body {
+  background: #EEEEEE;
+  font: 12px "Times New Roman", Times, sans-serif;
+  line-height: 1.4;
+  margin: 40px 0;
 }
 em {
-	color: #95a5a6;
-	font-weight: normal;
-	font-style: normal;
+  color: #999;
 }
-h4 span:first-child {
-	color: #000;
-	font-weight: bold;
+p {
+  line-height: 1.4;
 }
-.container {
-	max-width: 750px;
-	padding: 0 30px;
+ul {
+  margin-bottom: 0;
 }
-.col-sm-6 {
-	margin-bottom: 10px;
+li {
+  margin-bottom: 2px;
 }
-.col-sm-12 h4 {
-	margin-top: 12px; 
-}
-.col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
-}
-#header {
-	background: #f4f6f6;
-	padding: 50px 0;
-	margin-bottom: 30px;
-}
-#header h2 {
-	color: #95a5a6;
-	font-size: 24px;
-}
-#content h3 {
-	color: #f1c40f;
-	font-size: 26px;
-	margin-top: -4px;
-}
-#content aside {
-	text-align: right;
-	padding-right: 30px;
-}
-#profiles .network {
-	text-transform: capitalize;
-}
-#work .position,
-#volunteer .position {
-	font-weight: bold;
-	margin-bottom: 8px;
-}
-#education .area {
-	font-weight: bold;
-}
-#education .area:before {
-	content: "\f0d7";
-	font: 16px Octicons;
-	margin-right: 6px;
-}
-#education .studyType {
-	margin-left: 25px;
-}
-#awards .summary,
-#publications .summary {
-	margin-top: 8px;
-}
-#publications .website a:before {
-	content: attr(href);
+a {
+  text-decoration: none;
 }
 
-@media (min-width: 480px) {
-	.strike-through {
-		border-top: 1px solid #f4f6f6;
-		height: 20px;
-		margin-top: 12px;
-		margin-bottom: -2px;
-		position: relative;
-	}
-	.strike-through span,
-	.strike-through a {
-		background: #fff;
-		position: absolute;
-	}
-	.strike-through span:first-child {
-		padding-right: 20px;
-		margin-top: -12px;
-	}
-	.strike-through span + span {
-		font-size: 14px;
-		margin-top: -10px;
-		padding-left: 20px;
-		right: 0;
-	}
-}
-@media (max-width: 768px) {
-	.col-sm-6:last-child {
-		margin-bottom: 0px;
-	}
-	#content aside {
-		margin-bottom: 20px;
-		padding-right: 0;
-		text-align: left;
-	}
-	#publications .website a:before {
-		content: "View publication";
-	}
-}
-@media (max-width: 480px) {
-	h1 {
-		font-size: 26px;
-	}
-	.date {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	.strike-through span:first-child {
-		margin-bottom: 7px;
-	}
-	.strike-through span {
-		display: block;
-	}	
-	#header {
-		margin-bottom: 10px;
-		padding: 40px 0;
-	}
-	#actions {
-		display: none;
-	}
+#resume {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 80px 100px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 4px #aaa;
+  -webkit-box-shadow: 2px 2px 4px #aaa;
 }
 
+.coursesList {
+  width: 28%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.largeFont {
+  font-size: 20px;
+}
+
+.smallFont {
+  font-size: 12px;
+}
+
+.sectionName {
+  width: 18%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.sectionContent {
+  width: 80%;
+  vertical-align: top;
+  display: inline-block
+}
+
+.sectionContent ul {
+  padding-left: 20px;
+  margin-top: 6px;
+  list-style-type: circle;
+}
+
+.sectionContent .title {
+  font-weight: bold;
+}
+
+.sectionContent .date {
+  float: right;
+}
+
+.sectionContent .separator {
+  height: 14px;
+}
+
+.sectionLine {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: #CFCFCF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.divider {
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.summary {
+  margin-top: 6px;
+}
+
+.skillBlock {
+  margin-bottom: 4px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 40em) {
+  body {
+    margin: 0;
+    font-size: 14px;
+  }
+  #resume {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0.5em 1em;
+    border: none;
+  }
+  .sectionContent {
+    width: 100%;
+  }
+  .sectionContent .date {
+    padding-right: 2em;
+  }
+  .sectionName {
+    width: auto;
+  }
+  .largeFont {
+    font-size: 20px;
+  }
+  .smallFont {
+    font-size: 14px;
+  }
+}
+
+@media print {
+  #resume {
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0px 0px;
+    border: 0px;
+    background: #fff;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
 	</style>
 	
 	</head>
 	<body>
 	
-	<header id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9 col-sm-push-3">
-					<h1>
-						Marsel Atnyashev
-					</h1>
-					<h2>
-						Developer
-					</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div id="content" class="container">
+	<div id='resume'>
 
-	<section id="contact" class="row">
-		<aside class="col-sm-3">
-			<h3>Contact</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<strong>Email</strong>
-				<div class="email"><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="7312071d331e120100161f5d1d121e16">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></div>
-			</div>
-			<div class="col-sm-6">
-				<strong>Phone</strong>
-				<div class="phone">+7 912 587 01 77</div>
-			</div>
-			<div class="col-sm-6">
-				<strong>Website</strong>
-				<div class="website">
-					<a href="marsel.name">marsel.name</a>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>About</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p>I&#x27;m a passionate Russia based developer with 6 years of experience from web to app development. In recent years I prefer to use Javascript (react.js, node.js) and Go.</p>
-		</div>
-	</section>
+  <div id='nameBlock' class='largeFont'>
+    <span class='name'>
+      Marsel Atnyashev,
+    </span>
+    <span class='label'>Developer</span>
+  </div>
+  <div id='basicsBlock' class='smallFont'>
+    <div class='contactBlock'>
+      <span class='email'><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="bedfcad0fed3dfcccddbd290d0dfd3db">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></span>
+      <span class='divider'>|</span>
+      <span class='phone'>+7 912 587 01 77</span>
+        <span class='divider'>|</span>
+        <span class='address'>
+          Perm, Russia
+        </span>
+    </div>
+  </div>
+  <div class='sectionLine'></div>
 
-	<section id="work" class="row">
-		<aside class="col-sm-3">
-			<h3>Work</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Mobile Active LLC</span>
-					<span class="date">
-						2015-11-01 — 
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="mobak.ru">mobak.ru</a>
-				</div>
-				<div class="position">
-					developer
-				</div>
-				<div class="summary">
-					<p>Helped the business to be more effecient and reliable using cutting edge technologies.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">a service for collecting user data using Go</li>
-					<li class="bullet">created a control panel and a level editor using React.js</li>
-					<li class="bullet">implemented a monitoring system using Node.js with 60% code coverage</li>
-					<li class="bullet">developed a backoffice using Polymer and Yii2</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>TenderBerry.ru</span>
-					<span class="date">
-						2014-11-01 — 2015-10-31
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="tenderberry.ru">tenderberry.ru</a>
-				</div>
-				<div class="position">
-					co-founder
-				</div>
-				<div class="summary">
-					<p>I co-founded a startup (search engine for government procurements). I wrote it as single page application using React.js which talked to a Go backend that used Postgresql as a store and Sphinx as a search engine.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">services powered by Go and covered with unit tests</li>
-					<li class="bullet">web applicaition written in React.js using es6, websockets and web workers</li>
-					<li class="bullet">fast search with complex queries using Sphinx</li>
-					<li class="bullet">sales via phone and email</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>InitGroup</span>
-					<span class="date">
-						2012-08-01 — 2014-09-01
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="initpro.ru">initpro.ru</a>
-				</div>
-				<div class="position">
-					lead developer
-				</div>
-				<div class="summary">
-					<p>I developed most of their software from scratch. I was in charge of all the technical problems and hiring coders. The frontend is built with Javascript as a single page application, which talks to a php backend that powered by Mysql and collections of Sphinx servers.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">web application using Google Closure</li>
-					<li class="bullet">busy (scaled) full-text search powered by Sphinx</li>
-					<li class="bullet">custom web CRM using Require.js, Handlebars, Bootstrap</li>
-					<li class="bullet">monitoring servers and services by zabbix</li>
-					<li class="bullet">hiring developers</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Mobile Active LLC</span>
-					<span class="date">
-						2010-12-01 — 2012-08-01
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="mobak.ru">mobak.ru</a>
-				</div>
-				<div class="position">
-					developer
-				</div>
-				<div class="summary">
-					<p>I was involved in varios projects: from web to mobile applications and business intelligence.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">improving mobile game website</li>
-					<li class="bullet">creation of company&#x27;s website using MODx</li>
-					<li class="bullet">creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)</li>
-					<li class="bullet">development of a mobile app for sending sms via the Internet using MoSync C++ SDK</li>
-					<li class="bullet">prototypes runing on Marmalade SDK</li>
-					<li class="bullet">set up workflow and analytics using Pentaho</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Dobrohost</span>
-					<span class="date">
-						2009-07-01 — 2010-12-01
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="dobrohost.ru">dobrohost.ru</a>
-				</div>
-				<div class="position">
-					developer
-				</div>
-				<div class="summary">
-					<p>It was a web-hosting company where I learned the power of regular expressions.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">development of a control panel (Perl, Mysql, HTML+CSS)</li>
-					<li class="bullet">development of an internet auction in PHP. I later rewrote it to Perl.</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
+  <div id='summaryBlock'>
+    <div class='sectionName'>
+      <span>SUMMARY</span>
+    </div>
+    <div class='sectionContent'>
+      <span>Full-stack web developer. Specializing in single page applications. Latest tools of choice: React.js and Go.</span>
+    </div>
+  </div>
+  <div class='sectionLine'></div>
+
+  <div id='workBlock'>
+    <div class='sectionName'>
+      <span>EXPERIENCE</span>
+    </div>
+    <div class='sectionContent'>
+      <div class='blockHeader'>
+        <span class='title'>
+          Mobile Active LLC, developer
+        </span>
+        <span class='date'>
+          2015-11-01
+        </span>
+      </div>
+      <div><a href='mobak.ru'>mobak.ru</a></div>
+      <ul class='highlights'>
+        <li>built a service for collecting user data using Go</li>
+        <li>created a control panel and a level editor using React.js</li>
+        <li>implemented a monitoring system using Node.js with 60% code coverage</li>
+        <li>developed a backoffice using Polymer and Yii2</li>
+      </ul>
+      <div class='separator'></div>
+      <div class='blockHeader'>
+        <span class='title'>
+          TenderBerry.ru, co-founder
+        </span>
+        <span class='date'>
+          2014-11-01-2015-10-31
+        </span>
+      </div>
+      <div><a href='tenderberry.ru'>tenderberry.ru</a></div>
+      <ul class='highlights'>
+        <li>services and backend powered by Go and covered with unit tests</li>
+        <li>web applicaition written in React.js using es6, websockets and web workers</li>
+        <li>fast search with complex queries (ranking, facet search) using Sphinx</li>
+        <li>sales via phone and email</li>
+      </ul>
+      <div class='separator'></div>
+      <div class='blockHeader'>
+        <span class='title'>
+          InitGroup, lead developer
+        </span>
+        <span class='date'>
+          2012-08-01-2014-09-01
+        </span>
+      </div>
+      <div><a href='initpro.ru'>initpro.ru</a></div>
+      <ul class='highlights'>
+        <li>web application using Google Closure and PHP</li>
+        <li>busy (scaled) full-text search powered by Sphinx</li>
+        <li>custom web CRM using Require.js, Handlebars, Bootstrap</li>
+        <li>monitoring servers and services by Zabbix</li>
+        <li>hiring developers</li>
+      </ul>
+      <div class='separator'></div>
+      <div class='blockHeader'>
+        <span class='title'>
+          Mobile Active LLC, developer
+        </span>
+        <span class='date'>
+          2010-12-01-2012-08-01
+        </span>
+      </div>
+      <div><a href='mobak.ru'>mobak.ru</a></div>
+      <ul class='highlights'>
+        <li>improving mobile game website written in PHP</li>
+        <li>creation of company&#x27;s website using MODx</li>
+        <li>creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)</li>
+        <li>development of a mobile app for sending sms via the Internet using MoSync C++ SDK</li>
+        <li>prototypes runing on Marmalade SDK</li>
+        <li>set up workflow and analytics using Pentaho</li>
+      </ul>
+      <div class='separator'></div>
+      <div class='blockHeader'>
+        <span class='title'>
+          Dobrohost, developer
+        </span>
+        <span class='date'>
+          2009-07-01-2010-12-01
+        </span>
+      </div>
+      <div><a href='dobrohost.ru'>dobrohost.ru</a></div>
+      <ul class='highlights'>
+        <li>development of a control panel (Perl, Mysql, HTML+CSS)</li>
+        <li>development of an internet auction in PHP. I later rewrote it to Perl.</li>
+      </ul>
+      
+    </div>
+  </div>
+  <div class='sectionLine'></div>
+
 
 	
 	
 	
-	
-	<section id="skills" class="row">
-		<aside class="col-sm-3">
-			<h3>Skills</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Server</h4>
-				</div>
-				<ul class="keywords">
-					<li>Go</li>
-					<li>PHP</li>
-					<li>Linux</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Client</h4>
-				</div>
-				<ul class="keywords">
-					<li>JavaScript</li>
-					<li>React.js</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Data</h4>
-				</div>
-				<ul class="keywords">
-					<li>MySQL</li>
-					<li>Sphinx</li>
-					<li>PostgreSQL</li>
-					<li>Redis</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="languages" class="row">
-		<aside class="col-sm-3">
-			<h3>Languages</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>English</strong>
-				</div>
-				<div class="fluency">
-					Intermediate
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>Russian</strong>
-				</div>
-				<div class="fluency">
-					native
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-
-	
-
+	<div id='skills'>
+    <div class='sectionName'>
+      <span>SKILLS</span>
+    </div>
+    <div class='sectionContent'>
+      <div class='skillBlock'>
+        <span class='title'>Server:</span>
+          <span>Go</span>, 
+          <span>PHP</span>, 
+          <span>Linux</span>
+      </div>
+      <div class='skillBlock'>
+        <span class='title'>Client:</span>
+          <span>JavaScript</span>, 
+          <span>React.js</span>
+      </div>
+      <div class='skillBlock'>
+        <span class='title'>Data:</span>
+          <span>MySQL</span>, 
+          <span>Sphinx</span>, 
+          <span>PostgreSQL</span>, 
+          <span>Redis</span>
+      </div>
+    </div>
 	</div>
+  <div class='sectionLine'></div>
+
+	<div id='languages'>
+    <div class='sectionName'>
+      <span>LANGUAGES</span>
+    </div>
+    <div class='sectionContent'>
+      <span class='language'>English</span>
+      <span class='fluency'><em>(Intermediate)</em></span>
+      <span>,</span>
+      <span class='language'>Russian</span>
+      <span class='fluency'><em>(native)</em></span>
+      
+    </div>
+    <div class='sectionLine'></div>
+	</div>
+
 	
 	</body>
 </html>
