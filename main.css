@@ -48,7 +48,11 @@ body {
 
 ul.img-links {
   font-size: 20px;
-  color: red;
+  line-height: 1em;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  list-style: none;
 }
 
 ul.img-links img {
@@ -57,17 +61,12 @@ ul.img-links img {
 }
 
 ul.img-links li {
-  display: inline-block;
+  float: left;
+  padding: 5px;
 }
 
 ul.img-links li a {
   text-decoration: none;
-}
-
-.img-links .cv {
-  line-height: 20px;
-  font-weight: 300;
-  vertical-align: bottom;
 }
 
 .info {
