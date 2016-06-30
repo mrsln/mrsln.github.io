@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 	<head>
-	
+
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width, user-scalable=no, minimal-ui'>
-	
+
 	<title>Marsel Atnyashev</title>
 
 	<style>
@@ -54,6 +54,11 @@ a {
   font-size: 12px;
 }
 
+.sectionBlock {
+  display: flex;
+  width: 100%;
+}
+
 .sectionName {
   width: 18%;
   vertical-align: top;
@@ -63,7 +68,7 @@ a {
 .sectionContent {
   width: 80%;
   vertical-align: top;
-  display: inline-block
+  display: inline-block;
 }
 
 .sectionContent ul {
@@ -106,6 +111,10 @@ a {
   margin-bottom: 4px;
 }
 
+.jobBlock {
+  page-break-inside: avoid;
+}
+
 /* Media Queries */
 @media only screen and (max-width: 40em) {
   body {
@@ -145,14 +154,18 @@ a {
     box-shadow: none;
     -webkit-box-shadow: none;
   }
+
+  a {
+    color: black;
+  }
 }
+
 	</style>
-	
+
 	</head>
 	<body>
-	
-	<div id='resume'>
 
+	<div id='resume'>
   <div id='nameBlock' class='largeFont'>
     <span class='name'>
       Marsel Atnyashev,
@@ -161,7 +174,7 @@ a {
   </div>
   <div id='basicsBlock' class='smallFont'>
     <div class='contactBlock'>
-      <span class='email'><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="bedfcad0fed3dfcccddbd290d0dfd3db">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></span>
+      <span class='email'>atn@marsel.name</span>
       <span class='divider'>|</span>
       <span class='phone'>+7 912 587 01 77</span>
         <span class='divider'>|</span>
@@ -172,7 +185,7 @@ a {
   </div>
   <div class='sectionLine'></div>
 
-  <div id='summaryBlock'>
+  <div id='summaryBlock' class="sectionBlock">
     <div class='sectionName'>
       <span>SUMMARY</span>
     </div>
@@ -182,101 +195,129 @@ a {
   </div>
   <div class='sectionLine'></div>
 
-  <div id='workBlock'>
+  <div id='workBlock' class="sectionBlock">
     <div class='sectionName'>
       <span>EXPERIENCE</span>
     </div>
     <div class='sectionContent'>
-      <div class='blockHeader'>
-        <span class='title'>
-          Mobile Active LLC, developer
-        </span>
-        <span class='date'>
-          2015-11-01
-        </span>
-      </div>
-      <div><a href='mobak.ru'>mobak.ru</a></div>
-      <ul class='highlights'>
-        <li>built a service for collecting user data using Go</li>
-        <li>created a control panel and a level editor using React.js</li>
-        <li>implemented a monitoring system using Node.js with 60% code coverage</li>
-        <li>developed a backoffice using Polymer and Yii2</li>
-      </ul>
-      <div class='separator'></div>
-      <div class='blockHeader'>
-        <span class='title'>
-          TenderBerry.ru, co-founder
-        </span>
-        <span class='date'>
-          2014-11-01-2015-10-31
-        </span>
-      </div>
-      <div><a href='tenderberry.ru'>tenderberry.ru</a></div>
-      <ul class='highlights'>
-        <li>services and backend powered by Go and covered with unit tests</li>
-        <li>web applicaition written in React.js using es6, websockets and web workers</li>
-        <li>fast search with complex queries (ranking, facet search) using Sphinx</li>
-        <li>sales via phone and email</li>
-      </ul>
-      <div class='separator'></div>
-      <div class='blockHeader'>
-        <span class='title'>
-          InitGroup, lead developer
-        </span>
-        <span class='date'>
-          2012-08-01-2014-09-01
-        </span>
-      </div>
-      <div><a href='initpro.ru'>initpro.ru</a></div>
-      <ul class='highlights'>
-        <li>web application using Google Closure and PHP</li>
-        <li>busy (scaled) full-text search powered by Sphinx</li>
-        <li>custom web CRM using Require.js, Handlebars, Bootstrap</li>
-        <li>monitoring servers and services by Zabbix</li>
-        <li>hiring developers</li>
-      </ul>
-      <div class='separator'></div>
-      <div class='blockHeader'>
-        <span class='title'>
-          Mobile Active LLC, developer
-        </span>
-        <span class='date'>
-          2010-12-01-2012-08-01
-        </span>
-      </div>
-      <div><a href='mobak.ru'>mobak.ru</a></div>
-      <ul class='highlights'>
-        <li>improving mobile game website written in PHP</li>
-        <li>creation of company&#x27;s website using MODx</li>
-        <li>creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)</li>
-        <li>development of a mobile app for sending sms via the Internet using MoSync C++ SDK</li>
-        <li>prototypes runing on Marmalade SDK</li>
-        <li>set up workflow and analytics using Pentaho</li>
-      </ul>
-      <div class='separator'></div>
-      <div class='blockHeader'>
-        <span class='title'>
-          Dobrohost, developer
-        </span>
-        <span class='date'>
-          2009-07-01-2010-12-01
-        </span>
-      </div>
-      <div><a href='dobrohost.ru'>dobrohost.ru</a></div>
-      <ul class='highlights'>
-        <li>development of a control panel (Perl, Mysql, HTML+CSS)</li>
-        <li>development of an internet auction in PHP. I later rewrote it to Perl.</li>
-      </ul>
-      
+			<div class="jobBlock">
+	      <div class='blockHeader'>
+	        <span class='title'>
+	          Mobile Active LLC, developer
+	        </span>
+	        <span class='date'>
+	          2015-11-01 &mdash; Present
+	        </span>
+	      </div>
+	      <div><a href='mobak.ru'>mobak.ru</a></div>
+	      <ul class='highlights'>
+	        <li>built a service for collecting user data using Go</li>
+	        <li>created a control panel and a level editor using React.js</li>
+	        <li>implemented a monitoring system using Node.js with 60% code coverage</li>
+	        <li>developed a backoffice using Polymer and Yii2</li>
+	      </ul>
+	      <div class='separator'></div>
+			</div>
+			<div class="jobBlock">
+	      <div class='blockHeader'>
+	        <span class='title'>
+	          TenderBerry.ru, co-founder
+	        </span>
+	        <span class='date'>
+	          2014-11-01 &mdash; 2015-10-31
+	        </span>
+	      </div>
+	      <div><a href='tenderberry.ru'>tenderberry.ru</a></div>
+	      <ul class='highlights'>
+	        <li>services and backend powered by Go and covered with unit tests</li>
+	        <li>web applicaition written in React.js using es6, websockets and web workers</li>
+	        <li>fast search with complex queries (ranking, facet search) using Sphinx</li>
+	        <li>sales via phone and email</li>
+	      </ul>
+	      <div class='separator'></div>
+			</div>
+			<div class="jobBlock">
+	      <div class='blockHeader'>
+	        <span class='title'>
+	          InitGroup, lead developer
+	        </span>
+	        <span class='date'>
+	          2012-08-01 &mdash; 2014-09-01
+	        </span>
+	      </div>
+	      <div><a href='initpro.ru'>initpro.ru</a></div>
+	      <ul class='highlights'>
+	        <li>web application using Google Closure and PHP</li>
+	        <li>busy (scaled) full-text search powered by Sphinx</li>
+	        <li>custom web CRM using Require.js, Handlebars, Bootstrap</li>
+	        <li>monitoring servers and services by Zabbix</li>
+	        <li>hiring developers</li>
+	      </ul>
+	      <div class='separator'></div>
+			</div>
+			<div class="jobBlock">
+	      <div class='blockHeader'>
+	        <span class='title'>
+	          Mobile Active LLC, developer
+	        </span>
+	        <span class='date'>
+	          2010-12-01 &mdash; 2012-08-01
+	        </span>
+	      </div>
+	      <div><a href='mobak.ru'>mobak.ru</a></div>
+	      <ul class='highlights'>
+	        <li>improving mobile game website written in PHP</li>
+	        <li>creation of company&#x27;s website using MODx</li>
+	        <li>creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)</li>
+	        <li>development of a mobile app for sending sms via the Internet using MoSync C++ SDK</li>
+	        <li>prototypes runing on Marmalade SDK</li>
+	        <li>set up workflow and analytics using Pentaho</li>
+	      </ul>
+	      <div class='separator'></div>
+			</div>
+			<div class="jobBlock">
+	      <div class='blockHeader'>
+	        <span class='title'>
+	          Dobrohost, developer
+	        </span>
+	        <span class='date'>
+	          2009-07-01 &mdash; 2010-12-01
+	        </span>
+	      </div>
+	      <div><a href='dobrohost.ru'>dobrohost.ru</a></div>
+	      <ul class='highlights'>
+	        <li>development of a control panel (Perl, Mysql, HTML+CSS)</li>
+	        <li>development of an internet auction in PHP. I later rewrote it to Perl.</li>
+	      </ul>
+	      
+			</div>
     </div>
   </div>
   <div class='sectionLine'></div>
 
+	<div id='projects' class="sectionBlock">
+    <div class='sectionName'>
+      <span>PROJECTS</span>
+    </div>
+    <div class='sectionContent'>
+      <div class='blockHeader'>
+        <span class='title'>Weather (SPA)</span>
+        
+        <div class='website'><a href='https://github.com/mrsln/weather'>https://github.com/mrsln/weather</a></div>
+        <ul class='highlights'>
+          <li>react + redux</li>
+        </ul>
+      </div>
+      
+    </div>
+	</div>
+  <div class='sectionLine'></div>
 
-	
-	
-	
-	<div id='skills'>
+
+
+
+
+	<div id='skills' class="sectionBlock">
     <div class='sectionName'>
       <span>SKILLS</span>
     </div>
@@ -303,7 +344,7 @@ a {
 	</div>
   <div class='sectionLine'></div>
 
-	<div id='languages'>
+	<div id='languages' class="sectionBlock">
     <div class='sectionName'>
       <span>LANGUAGES</span>
     </div>
@@ -318,6 +359,6 @@ a {
     <div class='sectionLine'></div>
 	</div>
 
-	
+
 	</body>
 </html>
