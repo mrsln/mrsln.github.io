@@ -83,10 +83,22 @@
       ]
     }
   ],
-  "volunteer": [],
-  "education": [],
-  "awards": [],
-  "publications": [],
+  "projects": [
+    {
+      "name": "Weather app (SPA)",
+      "website": "https://github.com/mrsln/weather",
+      "highlights": [
+        "react + redux"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "name": "Talk on React (in russian)",
+      "releaseDate": "2015-01-06",
+      "website": "https://goo.gl/k7J98M"
+    }
+  ],
   "skills": [
     {
       "name": "Server",
