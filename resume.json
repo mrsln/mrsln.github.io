@@ -35,6 +35,7 @@
       "website": "tenderberry.ru",
       "startDate": "2014-11-01",
       "endDate": "2015-10-31",
+      "summary": "everything was developed from scratch, I was the only developer",
       "highlights": [
         "services and backend powered by Go and covered with unit tests",
         "web applicaition written in React.js using es6, websockets and web workers",
@@ -48,6 +49,7 @@
       "website": "initpro.ru",
       "startDate": "2012-08-01",
       "endDate": "2014-09-01",
+      "summary": "I've developed everything from the beginning and was responsible for all the technical decisions and hiring developers",
       "highlights": [
         "web application using Google Closure and PHP",
         "busy (scaled) full-text search powered by Sphinx",
