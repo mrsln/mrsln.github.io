@@ -6,8 +6,7 @@
 
 body {
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 22px;
-  background-color: #EFF1F3;
+  font-size: 5vmin;
   color: #1e3948;
 }
 
@@ -20,9 +19,7 @@ body {
 }
 
 .card {
-  border: 1px solid #DBD3D8;
   border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   width: 350px;
   padding: 10px;
   text-align: center;
