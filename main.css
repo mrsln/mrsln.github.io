@@ -5,9 +5,15 @@
 }
 
 body {
-  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 5vmin;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 3.5vw;
   color: #1e3948;
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 1.5em;
+  }
 }
 
 .root {
@@ -20,7 +26,7 @@ body {
 
 .card {
   border-radius: 4px;
-  width: 350px;
+  width: 70%;
   padding: 10px;
   text-align: center;
   background-color: white;
@@ -30,17 +36,59 @@ body {
 }
 
 .name {
-  margin: 5px 0;
+  animation: slideUp 1s;
+  font-size: 1em;
+  white-space: nowrap;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(5px);
+    opacity: .5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.face-unloaded {
+  visibility: hidden;
 }
 
 .face {
   width: 128px;
   height: 128px;
   border-radius: 100%;
-  margin-top: -90px;
   align-self: center;
-  border: 2px solid white;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  animation: imageIn 3s;
+}
+
+@keyframes imageIn {
+  from {
+    filter: saturate(80%) contrast(50%);
+  }
+  to {
+    filter: saturate(100%) contrast(100%);
+  }
+}
+
+.info {
+  font-weight: 300;
+  font-size: 0.7em;
+  margin-bottom: .7em;
+  animation: slideDown 1s;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-5px);
+    opacity: .5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 ul.img-links {
@@ -64,15 +112,4 @@ ul.img-links li {
 
 ul.img-links li a {
   text-decoration: none;
-}
-
-.info {
-  font-weight: 300;
-  font-size: 0.7em;
-  margin-bottom: 20px;
-}
-
-.add-info {
-  font-size: 0.7em;
-  display: none;
 }

@@ -1,13 +1,21 @@
 <html>
   <head>
     <title>Marsel Atnyashev</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300&subset=latin' rel='stylesheet' type='text/css' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
     <link href='main.css' rel='stylesheet' type='text/css'/>
+
+    <script>
+      function faceLoaded() {
+        const faceEl = document.getElementsByClassName('face-unloaded')[0];
+        faceEl.className = 'face';
+      }
+    </script>
   </head>
   <body>
     <div class='root'>
       <div class='card'>
+
+        <img src='rface.jpg' class='face-unloaded' width='128px' height='128px' onLoad='faceLoaded()'>
         <h5 class='name'>Marsel Atnyashev</h5>
         <p class='info'>Web developer</p>
 
@@ -26,6 +34,7 @@
             <a href='resume'>CV</a>
           </li>
         </ul>
+
       </div>
     </div>
   </body>
