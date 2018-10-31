@@ -1,12 +1,12 @@
 {
   "basics": {
-    "name": "Marsel Atnyashev",
+    "name": "Marsel Atniashev",
     "label": "Developer",
     "picture": "",
     "email": "atn@marsel.name",
     "phone": "+7 912 587 01 77",
     "skype": "marcel.atn",
-    "summary": "Full-stack web developer. Specializing in single page applications. Latest tools of choice: React.js and Go.",
+    "summary": "Full-stack web developer. Latest tools: React.js, Node.js and Scala. Clean code will save the world!",
     "location": {
       "address": "Russia, Perm",
       "postalCode": "",
@@ -18,15 +18,15 @@
   },
   "work": [
     {
-      "company": "Mobile Active LLC",
+      "company": "Active Games LLC",
       "position": "developer",
-      "website": "mobak.ru",
+      "website": "lordmancer2.io",
       "startDate": "2015-11-01",
       "highlights": [
-        "built a service for collecting user data using Go",
-        "created a control panel and a level editor using React.js",
-        "implemented a monitoring system using Node.js with 60% code coverage",
-        "developed a backoffice using Polymer and Yii2"
+        "developed new features in game's micro-services powered by Scala and glued with Kafka",
+        "created several SPAs using React.js",
+        "implemented services using Node.js",
+        "built a service for collecting user data using Go"
       ]
     },
     {
@@ -53,8 +53,6 @@
       "highlights": [
         "web application using Google Closure and PHP",
         "busy (scaled) full-text search powered by Sphinx",
-        "custom web CRM using Require.js, Handlebars, Bootstrap",
-        "monitoring servers and services by Zabbix",
         "hiring developers"
       ]
     },
@@ -65,12 +63,9 @@
       "startDate": "2010-12-01",
       "endDate": "2012-08-01",
       "highlights": [
-        "improving mobile game website written in PHP",
-        "creation of company's website using MODx",
-        "creation a marketing mobile app using PhoneGap (with a control panel for images and text upload)",
-        "development of a mobile app for sending sms via the Internet using MoSync C++ SDK",
-        "prototypes runing on Marmalade SDK",
-        "set up workflow and analytics using Pentaho"
+        "improving & creating websites in PHP",
+        "creation a marketing mobile app using PhoneGap",
+        "development of a mobile apps using C++"
       ]
     },
     {
@@ -80,8 +75,7 @@
       "startDate": "2009-07-01",
       "endDate": "2010-12-01",
       "highlights": [
-        "development of a control panel (Perl, Mysql, HTML+CSS)",
-        "development of an internet auction in PHP. I later rewrote it to Perl."
+        "development of a control panel (Perl, Mysql, HTML+CSS)"
       ]
     }
   ],
@@ -107,7 +101,8 @@
       "level": "",
       "keywords": [
         "Go",
-        "PHP",
+        "Scala",
+        "Node.js",
         "Linux"
       ]
     },
@@ -126,7 +121,9 @@
         "MySQL",
         "Sphinx",
         "PostgreSQL",
-        "Redis"
+        "Redis",
+        "Kafka",
+        "Cassandra"
       ]
     }
   ],
