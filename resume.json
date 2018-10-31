@@ -65,7 +65,7 @@
       "highlights": [
         "improving & creating websites in PHP",
         "creation a marketing mobile app using PhoneGap",
-        "development of a mobile apps using C++"
+        "development of mobile apps using C++"
       ]
     },
     {
@@ -75,7 +75,7 @@
       "startDate": "2009-07-01",
       "endDate": "2010-12-01",
       "highlights": [
-        "development of a control panel (Perl, Mysql, HTML+CSS)"
+        "development of a hosting control panel (Perl, Mysql, HTML+CSS)"
       ]
     }
   ],
