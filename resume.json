@@ -18,24 +18,25 @@
   },
   "work": [
     {
-      "company": "Active Games LLC",
-      "position": "developer",
-      "website": "lordmancer2.com",
-      "startDate": "2015-11-01",
-      "highlights": [
-        "developed new features in game's micro-services powered by Scala and glued with Kafka",
-        "created several SPAs using React.js",
-        "implemented services using Node.js",
-        "built a service for collecting user data using Go"
-      ]
-    },
-    {
-      "company": "Pixelart",
+      "company": "Out Of Axis",
       "position": "react developer",
       "website": "pixelart.ai",
       "startDate": "2016-06-10",
       "highlights": [
         "developed complex digital signage cms powered by React.js"
+      ]
+    },
+    {
+      "company": "Active Games LLC",
+      "position": "developer",
+      "website": "lordmancer2.com",
+      "startDate": "2015-11-01",
+      "endDate": "2018-12-01",
+      "highlights": [
+        "developed new features in game's micro-services powered by Scala and glued with Kafka",
+        "created several SPAs using React.js",
+        "implemented services using Node.js",
+        "built a service for collecting user data using Go"
       ]
     },
     {
