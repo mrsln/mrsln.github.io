@@ -2,40 +2,81 @@
   <head>
     <title>Marsel Atnyashev</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-    <link href='main.css' rel='stylesheet' type='text/css'/>
-
-    <script>
-      function faceLoaded() {
-        const faceEl = document.getElementsByClassName('face-unloaded')[0];
-        faceEl.className = 'face';
+    
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: grid;
+        place-content: center;
+        place-items: center;
+        font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+        font-size: calc(16px + 3.5vw);
+        color: rgba(0, 0, 0, .768);
       }
-    </script>
+
+      main {
+        display: grid;
+        place-content: center;
+        place-items: center;
+        grid-template-rows: auto;
+      }
+
+      iframe {
+        height: 50vh;
+        width: 50vw;
+        border: unset;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      h1, h6 {
+        margin: 0;
+      }
+
+      footer {
+        display: grid;
+        grid-template-columns: repeat(3, 16px);
+        grid-auto-flow: column;
+        height: 16px;
+        grid-gap: 2vw;
+      }
+
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: .9rem;
+      }
+
+    </style>
+
   </head>
   <body>
-    <div class='root'>
-      <div class='card'>
+    <main>
+      <iframe src="my-head.html"></iframe>
+      <h1>Marsel Atnyashev</h1>
+      <h6>Web developer</h6>
 
-        <img src='rface.jpg' class='face-unloaded' width='128px' height='128px' onLoad='faceLoaded()'>
-        <h5 class='name'>Marsel Atnyashev</h5>
-        <p class='info'>Web developer</p>
+      <footer>
+        <a href='https://github.com/mrsln/'>
+          <img src='https://github.com/favicon.ico' title='github'/>
+        </a>
 
-        <ul class='img-links'>
-          <li>
-            <a href='https://github.com/mrsln/'>
-              <img src='https://github.com/favicon.ico' title='github'/>
-            </a>
-          </li>
-          <li>
-            <a href='https://www.facebook.com/atnyashev/'>
-              <img src='https://facebook.com/favicon.ico' title='facebook'/>
-            </a>
-          </li>
-          <li>
-            <a href='resume'>CV</a>
-          </li>
-        </ul>
+        <a href='https://www.facebook.com/atnyashev/'>
+          <img src='https://facebook.com/favicon.ico' title='facebook'/>
+        </a>
 
-      </div>
-    </div>
+        <a href='resume'>CV</a>
+      </footer>
+
+    </main>
   </body>
 </html>
