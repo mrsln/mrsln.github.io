@@ -6,7 +6,7 @@
     "email": "atn@marsel.name",
     "phone": "+7 912 587 01 77",
     "skype": "marcel.atn",
-    "summary": "Full-stack web developer. Latest tools: React.js, Node.js and Scala. Clean code will save the world!",
+    "summary": "Web developer. Latest tools: React.js.",
     "location": {
       "address": "Russia, Perm",
       "postalCode": "",
@@ -23,7 +23,8 @@
       "website": "pixelart.ai",
       "startDate": "2016-06-10",
       "highlights": [
-        "developed complex digital signage cms powered by React.js"
+        "developed CMS clients on React.js",
+        "developed PWA for embedded systems"
       ]
     },
     {
@@ -74,7 +75,6 @@
       "endDate": "2012-08-01",
       "highlights": [
         "improving & creating websites in PHP",
-        "creation a marketing mobile app using PhoneGap",
         "development of mobile apps using C++"
       ]
     },
@@ -93,9 +93,7 @@
     {
       "name": "Weather app (SPA)",
       "website": "https://github.com/mrsln/weather",
-      "highlights": [
-        "react + redux"
-      ]
+      "highlights": ["react + redux"]
     }
   ],
   "publications": [
@@ -109,20 +107,12 @@
     {
       "name": "Server",
       "level": "",
-      "keywords": [
-        "Go",
-        "Scala",
-        "Node.js",
-        "Linux"
-      ]
+      "keywords": ["Go", "Scala", "Node.js", "Linux"]
     },
     {
       "name": "Client",
       "level": "",
-      "keywords": [
-        "JavaScript",
-        "React.js"
-      ]
+      "keywords": ["JavaScript", "React.js"]
     },
     {
       "name": "Data",
