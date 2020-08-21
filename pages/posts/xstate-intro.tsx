@@ -18,8 +18,8 @@ const str = `{
     }
   },
  
-  "initial": "switchedOff" // starting position
-  "id": "light",           // just for fun
+  "initial": "switchedOff"
+  "id": "light",
  }
 `;
 
@@ -29,7 +29,7 @@ export default function XstateIntro() {
       <Head>
         <title>{title} – Marsel Atniashev</title>
       </Head>
-      <div className="bg-white flex flex-col w-full items-center p-8 sm:p-2">
+      <div className="bg-white flex flex-col w-full items-center px-4">
         <div>
           <div className="flex py-6 space-x-2">
             <Link href="/">
