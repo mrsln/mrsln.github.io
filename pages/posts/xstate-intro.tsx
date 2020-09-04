@@ -56,11 +56,11 @@ export default function XstateIntro() {
                 <li>get to the point as fast as I can</li>
                 <li>wait, can it be more maintainable?</li>
                 <li>make everything `clean`</li>
-                <li>wait can we develop faster</li>
+                <li>wait, can we develop faster</li>
                 <li>get to to the point faster and cleanerish.</li>
               </ul>
               <p>
-                XState offers a faster prototyping and in case of fire a
+                XState offers a faster prototyping and, in case of fire, a
                 developer has an opportunity to throw everything away except for
                 the core business logic. Isn’t it the dream?
               </p>
@@ -88,7 +88,7 @@ export default function XstateIntro() {
                 standartized which means – great tools! One of the obvious ones
                 is visualizing it:
               </p>
-              <img src="/vi.gif" className="w-full" />
+              <img src="/xstate-intro/vi.gif" className="w-full" />
               <p>
                 I hope I have convinced you to give it a try – go read the{" "}
                 <a href="https://xstate.js.org/">docs</a>!
