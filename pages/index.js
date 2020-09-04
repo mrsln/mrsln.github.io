@@ -43,7 +43,7 @@ export default function IndexPage() {
             <ul className="space-y-4">
               {allPostsData.map(({ id, title, subtitle }) => (
                 <li key={id}>
-                  <Link href="/posts/[id]" as={`/posts/${id}`}>
+                  <Link href={`/posts/${id}`}>
                     <a>
                       <div className="text-indigo-500 font-semibold leading-relaxed tracking-wider uppercase">
                         {title}
