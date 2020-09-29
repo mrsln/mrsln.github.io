@@ -51,47 +51,77 @@ export default function XstateIntro() {
             </p>
             <Hero />
             <p>
-              My typical 11 years developer spiral growth:
-              <ul>
-                <li>get to the point as fast as I can</li>
-                <li>wait, can it be more maintainable?</li>
-                <li>make everything `clean`</li>
-                <li>wait, can we develop faster</li>
-                <li>get to to the point faster and cleanerish.</li>
-              </ul>
+              <h2>Example</h2>
               <p>
-                XState offers a faster prototyping and, in case of fire, a
-                developer has an opportunity to throw everything away except for
-                the core business logic. Isn’t it the dream?
-              </p>
-              <p>
-                Ok, let's try to do the simple stuff – a light switch. It can be
+                Let's try to do the simple stuff – a light switch. It can be
                 switchedOff or switchedOn. On each position, you can SWITCH.
                 Let's describe it in a some sort of a structure:
               </p>
               <pre>{str}</pre>
-              <p>
-                In the app code I'd imagine having a variable named
-                `currentSwitchPosition` ("switchedOff" or "switchedOn") and a
-                code to switch the position: `switchService.send('SWITCH')`.
-              </p>
+              <h2>Top-down style</h2>
               <p>
                 What I like about this approach is that you need to think about
                 the app first and then develop it. The same goes when you need
-                make a new feature – the developer has to think how it fits in
-                the current machine. I'm able to drastically move stuff around
-                without breaking the app. This makes me braver to make a change
-                because I know that’ll work in the end.
+                to make a new feature – the developer has to think how it fits
+                in the current machine.
               </p>
               <p>
-                Good news – the structure I’ve showed you is actually
+                You are thinking about the app at very high abstraction level
+                without sinking in details. You need to think of states that a
+                form can be: loading, submiting, error; as opposed to how
+                vertically center the submit button using CSS. This results in
+                better arhictecture that leads to great UX.
+              </p>
+              <h2>Easier refactoring</h2>
+              <p>
+                I'm able to drastically move stuff around without breaking the
+                app. This makes me braver to make a change because I know that
+                it will work in the end.
+              </p>
+              <p>
+                This comes from the fact that you have thought about the app
+                states and you already have some of the parts working. Having a
+                state machine is like a proven theorem: you know it works, just
+                need to polish out some of the details to make it work in
+                practice.
+              </p>
+              <h2>Less bugs</h2>
+              <p>
+                XState removes a class of bugs since a state machine can be only
+                in one state and that state can be transitioned by only known
+                list of events. This means no more buttons that are disabled and
+                loading at the same time.
+              </p>
+              <h2>Tools</h2>
+              <p>
+                Good news – the structure I’ve shown you is actually
                 standartized which means – great tools! One of the obvious ones
-                is visualizing it:
+                is <a href="https://xstate.js.org/viz/">visualizing</a> it:
               </p>
               <img src="/xstate-intro/vi.gif" className="w-full" />
               <p>
-                I hope I have convinced you to give it a try – go read the{" "}
-                <a href="https://xstate.js.org/">docs</a>!
+                But wait, there is more. Since we can visualise the state, the
+                next obvious idea is to attach it to your current machine in the
+                current UI in the browser and see how the state is changing.
+                It's called <a href="https://statecharts.io/">Inspector</a>.
+              </p>
+              <p>
+                The next big idea is to have a UI to construct the state
+                machine. Maybe someday we all be changing an app blueprint
+                before haphazardly programming a new feature.
+              </p>
+              <h2>Steep learning curve</h2>
+              <p>
+                You need to learn a lot of concepts and read a lot of code
+                before you can start using XState effectively. And even after
+                that it will slow you down at times – kind of just like static
+                typing.
+              </p>
+              <h2>Conclusion</h2>
+              <p>
+                I will be using XState where the UI is too complex and I need a
+                robust solution. I hope I have convinced you to give it a try –
+                go read the <a href="https://xstate.js.org/">docs</a>!
               </p>
             </p>
           </div>
