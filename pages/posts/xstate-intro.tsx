@@ -29,7 +29,7 @@ export default function XstateIntro() {
       <Head>
         <title>{title} – Marsel Atniashev</title>
       </Head>
-      <div className="bg-white flex flex-col w-full items-center px-4">
+      <div className="bg-white flex flex-col w-full items-center px-4 pb-12">
         <div>
           <div className="flex py-6 space-x-2">
             <Link href="/">
