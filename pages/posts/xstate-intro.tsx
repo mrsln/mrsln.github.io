@@ -37,7 +37,7 @@ export default function XstateIntro() {
                 <div className="w-8">
                   <MyHead />
                 </div>
-                <div className="text-teal-700">Marsel Atniashev</div>
+                <div className="text-indigo-500">Marsel Atniashev</div>
               </a>
             </Link>
           </div>

@@ -19,16 +19,19 @@ export default function IndexPage() {
         <title>Marsel Atniashev</title>
       </Head>
       <div className="flex flex-grow flex-col">
-        <div className="flex bg-gradient-to-r from-teal-100 via-white to-teal-100">
+        <div className="flex bg-gradient-to-r from-pink-100 via-transparent to-indigo-100">
           <div className="flex flex-col justify-center items-center sm:flex-row w-full px-4 py-12">
             <div className="w-32 sm:w-64">
               <MyHead />
             </div>
             <div className="px-4">
-              <h1 className="text-2xl font-bold leading-7 sm:text-5xl sm:leading-relaxed sm:truncate bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-teal-900">
+              <h1
+                style={{ fontFamily: "'Caveat', cursive;" }}
+                className="text-2xl font-bold leading-7 sm:text-5xl sm:leading-relaxed sm:truncate bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-indigo-900"
+              >
                 Hello
               </h1>
-              <h2 className="text-xl text-teal-700 font-medium tracking-wide">
+              <h2 className="text-xl text-indigo-700 font-medium tracking-wide">
                 <div>I'm Marsel Atniashev.</div>
                 <div>I build stuff on the web.</div>
               </h2>
@@ -55,9 +58,6 @@ export default function IndexPage() {
               ))}
             </ul>
           </div>
-        </div>
-        <div className="text-right bg-gradient-to-r from-teal-100 via-white to-teal-100 text-teal-700 p-2">
-          Thanks for visiting!
         </div>
       </div>
     </>
