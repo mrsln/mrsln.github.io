@@ -53,9 +53,9 @@ export default function XstateIntro() {
             <p>
               <h2>Example</h2>
               <p>
-                Let's try to do the simple stuff – a light switch. It can be
-                switchedOff or switchedOn. On each position, you can SWITCH.
-                Let's describe it in a some sort of a structure:
+                Let's see how a state machine looks like by creating a light
+                switch. It can be switchedOff or switchedOn. On each position,
+                you can SWITCH. Let's describe it in a some sort of a structure:
               </p>
               <pre>{str}</pre>
               <h2>Top-down style</h2>
