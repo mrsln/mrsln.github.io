@@ -9,6 +9,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
     "framer-motion": "^2.7.1",
+    "jsonresume-theme-onepage": "^0.0.3",
     "next": "9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

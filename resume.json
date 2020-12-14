@@ -18,13 +18,15 @@
   },
   "work": [
     {
-      "company": "Out Of Axis",
-      "position": "react developer",
-      "website": "pixelart.ai",
+      "company": "OutOfAxis",
+      "position": "Tech Lead",
+      "website": "fugo.ai",
       "startDate": "2016-06-10",
       "highlights": [
-        "developed CMS clients on React.js",
-        "developed PWA for embedded systems"
+        "developed CMS clients using React.js (GraphQL + Web Worker)",
+        "created Design Studio",
+        "developed PWA for embedded systems",
+        "helped with analytics, sales and support"
       ]
     },
     {
@@ -63,8 +65,7 @@
       "summary": "I've developed everything from the beginning and was responsible for all the technical decisions and hiring developers",
       "highlights": [
         "web application using Google Closure and PHP",
-        "busy (scaled) full-text search powered by Sphinx",
-        "hiring developers"
+        "busy (scaled) full-text search powered by Sphinx"
       ]
     },
     {
@@ -105,38 +106,22 @@
   ],
   "skills": [
     {
-      "name": "Server",
-      "level": "",
-      "keywords": ["Go", "Scala", "Node.js", "Linux"]
-    },
-    {
       "name": "Client",
       "level": "",
-      "keywords": ["JavaScript", "React.js"]
+      "keywords": ["JavaScript", "React"]
+    },
+    {
+      "name": "Server",
+      "level": "",
+      "keywords": ["Go", "Node", "Linux"]
     },
     {
       "name": "Data",
       "level": "",
-      "keywords": [
-        "MySQL",
-        "Sphinx",
-        "PostgreSQL",
-        "Redis",
-        "Kafka",
-        "Cassandra"
-      ]
+      "keywords": ["MySQL", "Sphinx", "PostgreSQL", "Redis"]
     }
   ],
-  "languages": [
-    {
-      "language": "English",
-      "fluency": "Intermediate"
-    },
-    {
-      "language": "Russian",
-      "fluency": "native"
-    }
-  ],
+  "languages": [],
   "interests": [],
   "references": []
 }
