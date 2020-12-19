@@ -19,7 +19,7 @@ export default function IndexPage() {
         <title>Marsel Atniashev</title>
       </Head>
       <div className="flex flex-grow flex-col">
-        <div className="flex bg-gradient-to-r from-pink-100 via-transparent to-indigo-100">
+        <div className="flex bg-gradient-to-r from-pink-50 via-transparent to-indigo-50">
           <div className="flex flex-col justify-center items-center sm:flex-row w-full px-4 py-12">
             <div className="w-32 sm:w-64">
               <MyHead />
@@ -38,7 +38,7 @@ export default function IndexPage() {
             </div>
           </div>
         </div>
-        <div className="bg-gray-100 flex flex-col items-center flex-grow">
+        <div className="bg-gray-50 flex flex-col items-center flex-grow">
           <div className="space-y-8 bg-white border sm:rounded-lg w-full sm:mx-8 md:mx-20 lg:mx-0 lg:w-2/3 max-w-screen-lg sm:-mt-8 p-10 sm:mb-4 py-12">
             <h3 className="text-3xl leading-9 font-medium text-gray-800">
               Blog
