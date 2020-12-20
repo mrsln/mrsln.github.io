@@ -3,12 +3,18 @@ import Link from "next/link";
 import Head from "next/head";
 
 import * as XstateIntro from "./posts/xstate-intro";
+import * as OfflineVideo from "./posts/offline-video";
 
 const allPostsData = [
   {
     title: XstateIntro.title,
     subtitle: XstateIntro.subtitle,
     id: "xstate-intro",
+  },
+  {
+    title: OfflineVideo.title,
+    subtitle: OfflineVideo.subtitle,
+    id: "offline-video",
   },
 ];
 
