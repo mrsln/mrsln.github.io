@@ -56,6 +56,8 @@ const code6 = `function play(videoEl) {
   }
 }`;
 
+const registerSWCode = `navigator.serviceWorker.register("service-worker.js")`;
+
 export default function OfflineVideo() {
   return (
     <>
@@ -81,7 +83,7 @@ export default function OfflineVideo() {
             <p>
               At{" "}
               <a href="https://www.fugo.ai" target="_blank">
-                fugo.ai
+                Fugo
               </a>
               , we needed to make sure uninterrupted playback. In this article
               you will learn how to do that utilizing Service Worker, Cache API,
@@ -101,7 +103,6 @@ export default function OfflineVideo() {
             </p>
             <h2>Indexed Database API</h2>
             <p>
-              {" "}
               A big part of any complex Web App is persistent state storage.
               IndexedDB is the best candidate for this: it’s performant and
               doesn’t block the main thread. Its API might be a bit too
@@ -123,9 +124,11 @@ export default function OfflineVideo() {
               Second, we need to intercept a network request and serve it from
               the Cache:
               <pre>{code3}</pre>
-              Of course, you need properly set up the Service Worker. You can
-              read how to do that on the internet or explore the end result
-              source code.
+              <div className="text-center -mt-6 mb-4 font-extralight">
+                service-worker.js
+              </div>
+              Finally, the Service Worker needs to be registered:
+              <pre>{registerSWCode}</pre>
             </p>
             <h2>Gotcha number one: cache eviction polices</h2>{" "}
             <p>
