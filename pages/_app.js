@@ -1,4 +1,5 @@
 import "../styles/index.css";
+import "prismjs/themes/prism-tomorrow.css";
 import Head from "next/head";
 import { AnimateSharedLayout } from "framer-motion";
 

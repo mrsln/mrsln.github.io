@@ -1,30 +1,35 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Prism from "prismjs";
 import MyHead from "../../../components/head";
 
 export const title = "Offline Videos";
 export const subtitle = "Play media even with poor internet connection.";
 
-const code1 = `import { set, Store } from 'idb-keyval';
+const code1 = `import { set, Store } from "idb-keyval";
 
 async function storeFileList(URLs) {
-  const db = new Store(‘my-files’);
-  await new Promise.all( URLs.map( url => set(url, url, db) )
+  const db = new Store("my-files");
+  await new Promise.all(
+    URLs.map((url) => set(url, url, db))
+  );
 }`;
 
 const code2 = `function cacheFile(url) {
-  const cache = await caches.open(‘my-files’);
+  const cache = await caches.open("my-files");
   const response = await fetch(url);
   await cache.put(url, response);
 }`;
 
-const code3 = `self.addEventListener("fetch", event => event.respondWith());
+const code3 = `self.addEventListener("fetch", (event) =>
+  event.respondWith(getResponse(event))
+);
 
 async function getResponse(event) {
   const response = await caches.match(event.request);
-  If (response) return response;
-  
+  if (response) return response;
+
   const onlineResponse = fetch(event.request);
   return onlineResponse;
 }`;
@@ -33,18 +38,16 @@ const code4 = `const isPersisted = await navigator.storage.persisted();
 console.log(\`Persisted storage granted: \${isPersisted}\`);`;
 
 const code5 = `async function reCheckCache() {
-  const db = new Store(‘my-files’);
+  const db = new Store("my-files");
   const files = (await keys(db)).map((key) => key.toString());
   const cachedFiles = (await cache.keys()).map((key) => key.url);
   await Promise.all(
-    files.map(
-      async file => {
-        if (!cached.file.includes(file)) {
-          cacheFile(file)
-        }
+    files.map(async (file) => {
+      if (!cachedFiles.file.includes(file)) {
+        cacheFile(file);
       }
-    )
-  )
+    })
+  );
 }`;
 
 const code6 = `function play(videoEl) {
@@ -85,10 +88,10 @@ export default function OfflineVideo() {
               <a href="https://www.fugo.ai" target="_blank">
                 Fugo
               </a>
-              , we needed to make sure uninterrupted playback. In this article
-              you will learn how to do that utilizing Service Worker, Cache API,
-              as well as a couple of gotchas about evicting policies and video
-              with audio.
+              , we needed to make sure of uninterrupted playback. In this
+              article you will learn how to do that utilizing Service Worker,
+              Cache API, as well as a couple of gotchas about evicting policies
+              and video with audio.
             </p>
             <h2>Progressive Web Apps</h2>
             <p>
@@ -110,7 +113,7 @@ export default function OfflineVideo() {
               library with simple interfaces for writing and reading from the
               DB. One of the states in our case could be a list of the video
               files:
-              <pre>{code1}</pre>
+              <JS>{code1}</JS>
               It looks a bit weird to store a list in a key-val fashion but I
               think it gives us simplicity.
             </p>
@@ -120,15 +123,15 @@ export default function OfflineVideo() {
               without buffering over poor internet connection, we need to store
               files in Cache and intercept the network request using Service
               Worker. First, we need to write a file to the Cache:
-              <pre>{code2}</pre>
+              <JS>{code2}</JS>
               Second, we need to intercept a network request and serve it from
               the Cache:
-              <pre>{code3}</pre>
-              <div className="text-center -mt-6 mb-4 font-extralight">
+              <JS>{code3}</JS>
+              <div className="text-center -mt-4 mb-4 font-extralight">
                 service-worker.js
               </div>
               Finally, the Service Worker needs to be registered:
-              <pre>{registerSWCode}</pre>
+              <JS>{registerSWCode}</JS>
             </p>
             <h2>Gotcha number one: cache eviction polices</h2>{" "}
             <p>
@@ -139,10 +142,10 @@ export default function OfflineVideo() {
               need to play soon is in the cache. First, try to tell the browser
               to persist the data. It most likely will not obey, but it doesn’t
               hurt to ask:
-              <pre>{code4}</pre>
+              <JS>{code4}</JS>
               Here is a simple code for checking and re-downloading missing
               files:
-              <pre>{code5}</pre>
+              <JS>{code5}</JS>
             </p>
             <h2>Gotcha number two: videos with audio track</h2>
             <p>
@@ -151,7 +154,7 @@ export default function OfflineVideo() {
               without the user’s input. Our app needs to survive an atomic
               explosion so this should be handled with ease. Here is a code that
               will allow you to play the video no matter what
-              <pre>{code6}</pre>
+              <JS>{code6}</JS>
             </p>
             <h2>Conclusion</h2>
             <p>
@@ -164,5 +167,19 @@ export default function OfflineVideo() {
         </div>
       </div>
     </>
+  );
+}
+
+function JS({ children }) {
+  React.useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
+  return (
+    <div className="mb-4">
+      <pre>
+        <code className="language-js">{children}</code>
+      </pre>
+    </div>
   );
 }
