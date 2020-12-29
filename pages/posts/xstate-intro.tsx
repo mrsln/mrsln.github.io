@@ -47,30 +47,30 @@ export default function XstateIntro() {
             </h1>
             <p>
               After reading this article you will learn one of the ways to make
-              programming a little bit more sane using XState.
+              programming a little bit saner using XState.
             </p>
             <Hero />
             <p>
               <h2>Example</h2>
               <p>
-                Let's see how a state machine looks like by creating a light
-                switch. It can be switchedOff or switchedOn. On each position,
-                you can SWITCH. Let's describe it in a some sort of a structure:
+                Let's see what a state machine looks like by creating a light
+                switch. It can be switchedOff or switchedOn. At each position,
+                you can SWITCH. Let's describe it in some sort of a structure:
               </p>
               <pre>{str}</pre>
               <h2>Top-down style</h2>
               <p>
                 What I like about this approach is that you need to think about
-                the app first and then develop it. The same goes when you need
-                to make a new feature – the developer has to think how it fits
-                in the current machine.
+                the app first and then develop it. The same goes for when you
+                need to make a new feature – the developer has to think about
+                how it fits in the current machine.
               </p>
               <p>
-                You are thinking about the app at very high abstraction level
-                without sinking in details. You need to think of states that a
-                form can be: loading, submiting, error; as opposed to how
-                vertically center the submit button using CSS. This results in
-                better arhictecture that leads to great UX.
+                You are thinking about the app at a very high abstraction level
+                without sinking into the details. You need to think of states
+                that a form can be: loading, submitting, error; as opposed to
+                how to vertically center the submit button using CSS. This
+                results in better architecture which leads to great UX.
               </p>
               <h2>Easier refactoring</h2>
               <p>
@@ -81,26 +81,26 @@ export default function XstateIntro() {
               <p>
                 This comes from the fact that you have thought about the app
                 states and you already have some of the parts working. Having a
-                state machine is like a proven theorem: you know it works, just
-                need to polish out some of the details to make it work in
+                state machine is like a proven theorem: you know it works, and
+                just need to polish out some of the details to make it work in
                 practice.
               </p>
-              <h2>Less bugs</h2>
+              <h2>Fewer bugs</h2>
               <p>
                 XState removes a class of bugs since a state machine can be only
-                in one state and that state can be transitioned by only known
+                in one state and that state can be transitioned by an only known
                 list of events. This means no more buttons that are disabled and
                 loading at the same time.
               </p>
               <h2>Tools</h2>
               <p>
                 Good news – the structure I’ve shown you is actually
-                standartized which means – great tools! One of the obvious ones
+                standardized which means – great tools! One of the obvious ones
                 is <a href="https://xstate.js.org/viz/">visualizing</a> it:
               </p>
               <img src="/xstate-intro/vi.gif" className="w-full" />
               <p>
-                But wait, there is more. Since we can visualise the state, the
+                But wait, there is more. Since we can visualize the state, the
                 next obvious idea is to attach it to your current machine in the
                 current UI in the browser and see how the state is changing.
                 It's called <a href="https://statecharts.io/">Inspector</a>.
@@ -114,7 +114,7 @@ export default function XstateIntro() {
               <p>
                 You need to learn a lot of concepts and read a lot of code
                 before you can start using XState effectively. And even after
-                that it will slow you down at times – kind of just like static
+                that, it will slow you down at times – kind of just like static
                 typing.
               </p>
               <h2>Conclusion</h2>

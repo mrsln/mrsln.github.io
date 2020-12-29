@@ -88,10 +88,10 @@ export default function OfflineVideo() {
               <a href="https://www.fugo.ai" target="_blank">
                 Fugo
               </a>
-              , we needed to make sure of uninterrupted playback. In this
-              article you will learn how to do that utilizing Service Worker,
-              Cache API, as well as a couple of gotchas about evicting policies
-              and video with audio.
+              , we needed to ensure uninterrupted playback. In this article, you
+              will learn how to do this utilizing Service Worker, Cache API, as
+              well as a couple of gotchas about evicting policies and video with
+              audio.
             </p>
             <h2>Progressive Web Apps</h2>
             <p>
@@ -100,9 +100,9 @@ export default function OfflineVideo() {
               small team. Also, Digital Signage players often have a poor
               internet connection or no connection at all. PWA is a perfect fit
               for the task. Basically, PWA is an approach to web development
-              that results in a web app that has user experience of a native
-              application. This means, that the app can be installed on Home
-              screen and used even in case of absent of the internet.
+              that results in a web app that has a user experience of a native
+              application. This means, that the app can be installed on the home
+              screen and used even in the absence of the internet.
             </p>
             <h2>Indexed Database API</h2>
             <p>
@@ -120,9 +120,9 @@ export default function OfflineVideo() {
             <h2>Cache API + Service Worker</h2>
             <p>
               In order to ensure offline playback and uninterrupted video
-              without buffering over poor internet connection, we need to store
-              files in Cache and intercept the network request using Service
-              Worker. First, we need to write a file to the Cache:
+              without buffering over a poor internet connection, we need to
+              store files in the Cache and intercept the network request using
+              Service Worker. First, we need to write a file to the Cache:
               <JS>{code2}</JS>
               Second, we need to intercept a network request and serve it from
               the Cache:
@@ -133,10 +133,10 @@ export default function OfflineVideo() {
               Finally, the Service Worker needs to be registered:
               <JS>{registerSWCode}</JS>
             </p>
-            <h2>Gotcha number one: cache eviction polices</h2>{" "}
+            <h2>Gotcha number one: cache eviction policies</h2>
             <p>
               Files in the Cache can be removed by the browser if the OS needs
-              more space on the disk. Even though, modern Chrome gives 60% of
+              more space on the disk. Even though modern Chrome gives 60% of
               free space to a website, older browsers can have their own rules
               for eviction. That’s why we need to make sure that the file we
               need to play soon is in the cache. First, try to tell the browser
@@ -147,13 +147,14 @@ export default function OfflineVideo() {
               files:
               <JS>{code5}</JS>
             </p>
-            <h2>Gotcha number two: videos with audio track</h2>
+            <h2>Gotcha number two: videos with an audio track</h2>
             <p>
-              Website with autoplaying videos have ruined it for all of us. To
-              combat that, Google decided to forbid playing videos with sound
-              without the user’s input. Our app needs to survive an atomic
-              explosion so this should be handled with ease. Here is a code that
-              will allow you to play the video no matter what
+              Websites with autoplaying videos have ruined the browser
+              experience for all of us. To combat that, Google decided to forbid
+              playing videos with sound without the user’s input. Our app needs
+              to survive an atomic explosion so this should be handled with
+              ease. Here is a code that will allow you to play the video no
+              matter what
               <JS>{code6}</JS>
             </p>
             <h2>Conclusion</h2>
