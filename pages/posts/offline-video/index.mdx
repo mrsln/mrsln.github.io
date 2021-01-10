@@ -1,0 +1,151 @@
+import Layout from "../../../components/layout";
+
+At <a href="https://www.fugo.ai" target="_blank">Fugo</a>
+, we needed to ensure uninterrupted playback. In this article, you will learn how
+to do this utilizing Service Worker, Cache API, as well as a couple of gotchas about
+evicting policies and video with audio.
+
+## Progressive Web Apps
+
+We support a wide range of devices so we needed a way to create a
+cross-platform player that can be implemented and supported by a
+small team. Also, Digital Signage players often have a poor
+internet connection or no connection at all. PWA is a perfect fit
+for the task. Basically, PWA is an approach to web development
+that results in a web app that has a user experience of a native
+application. This means, that the app can be installed on the home
+screen and used even in the absence of the internet.
+
+## Indexed Database API
+
+A big part of any complex Web App is persistent state storage.
+IndexedDB is the best candidate for this: it’s performant and
+doesn’t block the main thread. Its API might be a bit too
+elaborate and that’s why we have chosen `idb-keyval` – a wrapper
+library with simple interfaces for writing and reading from the
+DB. One of the states in our case could be a list of the video
+files:
+
+```js
+import { set, Store } from "idb-keyval";
+
+async function storeFileList(URLs) {
+  const db = new Store("my-files");
+  await new Promise.all(URLs.map((url) => set(url, url, db)));
+}
+```
+
+It looks a bit weird to store a list in a key-val fashion but I
+think it gives us simplicity.
+
+## Cache API + Service Worker
+
+In order to ensure offline playback and uninterrupted video
+without buffering over a poor internet connection, we need to
+store files in the Cache and intercept the network request using
+Service Worker. First, we need to write a file to the Cache:
+
+```js
+function cacheFile(url) {
+  const cache = await caches.open("my-files");
+  const response = await fetch(url);
+  await cache.put(url, response);
+}
+```
+
+Second, we need to intercept a network request and serve it from
+the Cache:
+
+```js
+self.addEventListener("fetch", (event) =>
+  event.respondWith(getResponse(event))
+);
+
+async function getResponse(event) {
+  const response = await caches.match(event.request);
+  if (response) return response;
+
+  const onlineResponse = fetch(event.request);
+  return onlineResponse;
+}
+```
+
+Finally, the Service Worker needs to be registered:
+
+```js
+navigator.serviceWorker.register("service-worker.js");
+```
+
+## Gotcha number one: cache eviction policies
+
+Files in the Cache can be removed by the browser if the OS needs
+more space on the disk. Even though modern Chrome gives 60% of
+free space to a website, older browsers can have their own rules
+for eviction. That’s why we need to make sure that the file we
+need to play soon is in the cache. First, try to tell the browser
+to persist the data. It most likely will not obey, but it doesn’t
+hurt to ask:
+
+```js
+const isPersisted = await navigator.storage.persisted();
+console.log(\`Persisted storage granted: \${isPersisted}\`);
+```
+
+Here is a simple code for checking and re-downloading missing
+files:
+
+```js
+async function reCheckCache() {
+  const db = new Store("my-files");
+  const files = (await keys(db)).map((key) => key.toString());
+  const cachedFiles = (await cache.keys()).map((key) => key.url);
+  await Promise.all(
+    files.map(async (file) => {
+      if (!cachedFiles.file.includes(file)) {
+        cacheFile(file);
+      }
+    })
+  );
+}
+```
+
+## Gotcha number two: videos with an audio track
+
+Websites with autoplaying videos have ruined the browser
+experience for all of us. To combat that, Google decided to forbid
+playing videos with sound without the user’s input. Our app needs
+to survive an atomic explosion so this should be handled with
+ease. Here is a code that will allow you to play the video no
+matter what
+
+```js
+function play(videoEl) {
+  try {
+    videoEl.play();
+  } catch (e) {
+    videoEl.muted = true;
+    videoEl.play();
+  }
+}
+```
+
+## Conclusion
+
+Service Worker and Cache API are quite old technologies that have
+been available since 2015 in Chrome. It means that it’s safe to
+use them and it’s perfect if you need to keep playing the music
+when the internet speed is close to zero.
+
+export const title = "Offline Videos";
+export const description = "Play media even with poor internet connection.";
+
+export default ({ children }) => (
+  <Layout
+    meta={{
+      title,
+      description,
+    }}
+  >
+    {children}
+  </Layout>
+);
