@@ -47,9 +47,9 @@ export default function IndexPage() {
         </div>
         <div className="bg-gray-50 flex flex-col items-center flex-grow">
           <div className="w-full flex justify-center mx-auto">
-            <div className="w-full max-w-screen-lg lg:w-3/4 space-y-10 pb-10">
+            <div className="w-full max-w-screen-lg lg:w-3/4 lg:space-y-10 pb-10">
               {/* blog */}
-              <div className="w-full space-y-8 bg-white border lg:rounded-lg sm:-mt-8 p-10 sm:mb-4 py-12">
+              <div className="w-full space-y-8 bg-white border lg:rounded-lg sm:-mt-8 p-10 lg:mb-4 py-12">
                 <h3 className="text-3xl leading-9 font-medium text-gray-800">
                   Blog
                 </h3>
@@ -99,8 +99,7 @@ export default function IndexPage() {
                       Subscribe to my newsletter.
                     </h2>
                     <p className="mt-6 mx-auto max-w-2xl text-lg text-indigo-200">
-                      Not sure what this is going to be. I guess I occasionally
-                      will send you the awesome stuff I have done.
+                      Get the tastiest, the craziest updates to your inbox!
                     </p>
                   </div>
                   <NewsletterForm />
