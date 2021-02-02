@@ -46,7 +46,7 @@ export default function NewsletterForm() {
       <div className="mt-4 sm:mt-0 sm:ml-3">
         <button
           type="submit"
-          className={`relative lg:w-48 h-12 block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10 ${buttonStateClasses}`}
+          className={`relative sm:w-48 h-12 block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-500 text-base font-medium text-white shadow hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600 sm:px-10 ${buttonStateClasses}`}
           disabled={mutation.isLoading}
         >
           <AnimatePresence>
