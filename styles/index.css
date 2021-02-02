@@ -12,3 +12,13 @@
 
 /* Your own custom utilities */
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap");
+
+.hero-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+}
+
+@media (max-width: 640px) {
+  .hero-clip {
+    clip-path: none;
+  }
+}
