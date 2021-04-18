@@ -33,7 +33,7 @@ export default function IndexPage() {
             </div>
             <div className="px-4">
               <h1
-                style={{ fontFamily: "'Caveat', cursive;" }}
+                style={{ fontFamily: "'Caveat', cursive" }}
                 className="text-2xl font-bold leading-7 sm:text-5xl sm:leading-relaxed sm:truncate bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-indigo-900"
               >
                 Hello
