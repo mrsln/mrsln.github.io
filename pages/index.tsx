@@ -26,7 +26,7 @@ export default function IndexPage() {
         <title>Marsel Atniashev</title>
       </Head>
       <div className="flex flex-grow flex-col bg-gray-50">
-        <div className="flex bg-gradient-to-r from-pink-50 via-transparent to-indigo-50 hero-clip sm:pb-36">
+        <div className="flex bg-gradient-to-r from-pink-50 via-white to-indigo-50 hero-clip sm:pb-36">
           <div className="flex flex-col justify-center items-center sm:flex-row w-full px-4 py-12">
             <div className="w-32 sm:w-64">
               <MyHead />
