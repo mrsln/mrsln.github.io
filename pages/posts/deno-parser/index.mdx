@@ -1,0 +1,246 @@
+import Layout from "../../../components/layout";
+
+export const title = "Deno parser";
+export const description =
+  "Implementing a web scrapper using Deno that parses indeed.com.";
+
+In this article, I will show you one of the basic ways to implement a web parser using Deno.
+
+## The honest why
+
+**TLDR** I find it interesting
+
+I was listening to the Indie Hacker podcast and Courtland gave out an idea for a programming course.
+He says that a lot of youtube videos are teaching the basics of coding that are not directly applicable
+to something that the learner wants to build. I agree that a goal is a big part of successful studying.
+I wanted to teach something applicable and desired by the market.
+Throughout my career, I saw the task of parsing again and again in companies.
+Some tools that are trying to tackle this with no code approach but it seems to me that we are stuck
+with manually crafted parsers for a while.
+I headed to Upwork for better realism of the task and also to entice the viewer with a possible reward for such a job.
+When I started writing a script for the video I wanted it to be applicable to a wide audience.
+So I went with NodeJS and plain Javascript.
+However, I quickly realized that I’m bored and will not be able to finish it.
+That’s how it turned out to be Deno and Typescript.
+
+## White hat
+
+Be nice to the website by identifying that you are using an automated script to parse the website in
+the User-Agent header and pausing between downloading the pages. This way you will have bigger chances
+of not being banned and this will prevent the website to be down which is also has a negative impact on
+your business.
+
+## Infrastructure
+
+I wouldn’t worry about it if it was a small project.
+But even a crontab will go a long way and will cover the needs of most of the projects.
+In the bigger projects, I would try to have monitoring & alerting, human validation, scaling, and backups.
+
+### Monitoring
+
+There should be a way to determine the state of the current parsing session.
+You should be able to see what has failed, how many failed jobs are there, and why they are failing.
+If there are too many errors in a given time range, you should get a critical notification.
+
+### Human validation
+
+Your code should validate the data and not put erroneous entries in the database.
+However, the website you’re parsing is changing and you cannot predict future updates.
+That’s why there should be a person getting an email with succinct statistics of the latest parsing
+session and they should check a couple of entries in the DB, as well as the product that is built on that data.
+
+### Scaling
+
+It would be great to have something like Apache Hadoop to distribute the tasks between machines
+but I think in most cases it’s not needed. If you have issues with your IP being banned,
+you can use proxies or contact the website provider to allowlist your IPs or the User-Agent.
+
+### Backups
+
+If you have a lot of historic data that is unlikely to change it’s a good idea to store page content
+in order to periodically reparse items with a newer code.
+This way, you will fix bugs in the data that is already has been parsed.
+If you have pages changing rapidly, I would still recommend storing them for at least a couple of days
+so you can fix them quickly should be there an error in the latest release of the parser.
+
+## Parsing method
+
+How you’re going to parse the website is the core code of the script. I’ve seen several approaches:
+
+- a hand made parser that iterates over symbols while trying to match the needed data
+- regular expressions
+- querying the document using a library that parses document first
+
+I went with the last option because it’s the easiest one for me and developers are probably already
+familiar with document.querySelector. Although I did have a concern about this because I thought
+that the class names can be easily changed on the website, effectively breaking the parser.
+I quickly realized that websites are actually rarely changed because it takes time and money to do it
+and nobody will change the website without a good reason, risking breaking previously battle-tested products.
+
+I googled “deno dom parser” and the first result pointed to <a href="https://deno.land/x/deno_dom/deno-dom-wasm.ts">Deno DOM</a>.
+I've copied the doc's example and fitted it to the problem I needed to solve.
+
+## Line by line tutorial
+
+In this section, I’ll try to answer all questions that might arise while reading
+[the full code](https://gist.github.com/mrsln/3e801f28f6116d689958be7bf76de6b3) of the parser.
+
+```bash
+deno run --allow-net index.ts
+```
+
+`deno` – you have to install Deno before using the script<br/>
+`run` – this an argument for Deno indicating that we want to execute the script<br/>
+`--allow-net` – Deno runs all programs in a sandbox. This means that you can run any script that you have downloaded from the internet without fear that it will harm your computer. If the script needs to change File System or make a network request, Deno will notify you about it. This flag allows the script to communicate via the internet.<br/>
+`index.ts` – the name of the file where the script is living
+
+```js
+import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+```
+
+This is how Deno is importing modules.
+
+```js
+const response = await fetch("https://be.indeed.com/jobs?q=Marketing&lang=en");
+const reply = await response.text();
+```
+
+Here I am downloading the page using the `fetch` function which is built-in into Deno.
+It’s a Web API and I love the fact that Deno has it, whereas in Nodejs you’d need to have a dependency
+that implements it. The `await` keyword is needed here because fetch is returning a promise of a result
+so we need to wait for the actual result. I call the .text method on the response because I need
+to parse the bytes I got from the server as a string.
+
+```js
+const doc = new DOMParser().parseFromString(reply, "text/html")!;
+```
+
+The variable named `doc` is holding a reference to an object that has methods of querying the document
+that has been parsed from the earlier server reply.
+
+```js
+const jobKeys = doc
+  .getElementsByClassName("jobtitle")
+  .map((jobNode) => jobNode.getAttribute("href"))
+  .map((jobLink) => jobLink?.split("?")[1])
+  .map((jobParam) => new URLSearchParams(jobParam).get("jk"));
+```
+
+After running all these lines of code, we end up with a job keys list in the variable called jobKeys.
+A job key is an identifier of the open position in the DB of the website.
+First, I get all HTML elements that have `jobtitle` in their CSS class names.
+They are all link elements, meaning they are anchor elements or `<a />` elements.
+After that, I get the actual address from the `href` attribute.
+Next, I take the part of the URL that goes after a question mark.
+This part contains parameters of the URL (e.g. https://example.com/?jk=bar).
+Lastly, I parse the string from the previous step using the built-in URLSearchParams class which gives me
+a method to extract individual values of the parameters, in this case, I get the value of `jk` (job key).
+
+```js
+const fetchingJobs = jobKeys.map(async (jobKey, i) => {
+```
+
+Iterating over all job keys. The result is an array of promises.
+
+```js
+await randomSleep(i * 1000);
+```
+
+This line of code is scheduling the parsing task in the future without blocking the main thread.
+Each task is scheduled to be run every second.
+
+```js
+const response = await fetch(
+  `https://be.indeed.com/viewjob?jk=${jobKey}&from=vjs&vjs=1`,
+  {
+    headers: {
+      "user-agent": "bot parsing",
+    },
+  }
+);
+const reply = await response.json();
+```
+
+Fetching the data using Indeed’s internal API request and parsing it as JSON.
+
+```js
+const {
+  jobTitle: title,
+  vfvm: { jobSource: company, viewApplyJobLink },
+  sicm: { cmL: companyLogo },
+  jobLocation: location,
+  timestamp,
+} = reply;
+
+return {
+  title,
+  company,
+  viewApplyJobLink,
+  companyLogo,
+  location,
+  timestamp,
+  jobKey,
+};
+```
+
+Picking the bits that are important for the task.
+
+```js
+const jobs = await Promise.all(fetchingJobs);
+```
+
+Running all the parsing tasks.
+
+```js
+const jobDescrUrl = `https://be.indeed.com/rpc/jobdescs?jks=${encodeURIComponent(
+  jobKeys.join(",")
+)}`;
+const descrResponse = await fetch(jobDescrUrl);
+const descrReply = await descrResponse.json();
+
+const jobsWithDescr = jobs.map((job) => ({
+  ...job,
+  description: descrReply[job?.jobKey || ""],
+}));
+```
+
+An additional query for getting job descriptions and enriching the previous job entities.
+
+```js
+async function randomSleep(min: number) {
+  const delay = min + ~~(Math.random() \* 1000);
+  console.log(`I'm sleeping for ${delay}ms`);
+  await new Promise((resolve) => setTimeout(resolve, delay));
+}
+```
+
+The function that schedules the parsing tasks. It returns a Promise that will be resolved after `min` seconds,
+plus some random milliseconds.
+
+## In conclusion
+
+I think this task will always be relevant and it is a cool way to make some side money for junior developers.
+Try not to overthink it in order to hit the deadline.
+
+## Bonus video
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/5uxpZ9JD9WU"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
+export default ({ children }) => (
+  <Layout
+    meta={{
+      title,
+      description,
+    }}
+  >
+    {children}
+  </Layout>
+);

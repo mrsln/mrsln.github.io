@@ -4,18 +4,24 @@ import Head from "next/head";
 
 import * as XstateIntro from "./posts/xstate-intro/index.mdx";
 import * as OfflineVideo from "./posts/offline-video/index.mdx";
+import * as DenoParser from "./posts/deno-parser/index.mdx";
 import NewsletterForm from "../components/newsletter-form";
 
 const allPostsData = [
   {
-    title: XstateIntro.title,
-    subtitle: XstateIntro.description,
-    id: "xstate-intro",
+    title: DenoParser.title,
+    subtitle: DenoParser.description,
+    id: "deno-parser",
   },
   {
     title: OfflineVideo.title,
     subtitle: OfflineVideo.description,
     id: "offline-video",
+  },
+  {
+    title: XstateIntro.title,
+    subtitle: XstateIntro.description,
+    id: "xstate-intro",
   },
 ];
 
