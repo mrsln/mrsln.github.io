@@ -17,6 +17,7 @@ const components = {
   h1: (props) => <h1 style={{ color: "tomato" }} {...props} />,
   pre: (props) => <div {...props} />,
   code: Code,
+  p: (props) => <div {...props} />,
 };
 
 export default function Layout({ children, meta }: Props) {
@@ -56,7 +57,7 @@ export default function Layout({ children, meta }: Props) {
 }
 
 interface Props {
-  children: React.ReactChildren;
+  children: React.ReactChild;
   meta: {
     title: string;
     description: string;

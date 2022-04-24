@@ -1,39 +1,56 @@
-import { useEffect, useRef } from "react";
+import React from "react";
+import styled from "styled-components";
 import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
 
-const ARTICLE_DESKTOP_WIDTH = 655;
+const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow: scroll;
+`;
 
-export default function Code({ children, className }) {
-  const preRef = useRef(null);
+const Line = styled.div`
+  display: table-row;
+`;
 
-  useEffect(() => {
-    function fitPre() {
-      if (document.body.clientWidth < ARTICLE_DESKTOP_WIDTH) {
-        preRef.current.style.width = `${document.body.clientWidth - 30}px`;
-      } else {
-        preRef.current.style.width = "auto";
-      }
-    }
+const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+  margin-right: 1rem;
+`;
 
-    fitPre();
-    window.addEventListener("resize", fitPre, true);
-    return () => window.removeEventListener("resize", fitPre, true);
-  }, []);
+const LineContent = styled.span`
+  display: table-cell;
+`;
 
+const Code = ({ children = "", className }) => {
   const language = className.replace(/language-/, "");
   return (
-    <Highlight {...defaultProps} code={children} language={language}>
+    <Highlight
+      {...defaultProps}
+      theme={theme}
+      code={children.trim()}
+      language={language}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style} ref={preRef}>
+        <Pre className={className} style={style}>
           {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
+            <Line key={i} {...getLineProps({ line, key: i })}>
+              <LineNo>{i + 1}</LineNo>
+              <LineContent>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </LineContent>
+            </Line>
           ))}
-        </pre>
+        </Pre>
       )}
     </Highlight>
   );
-}
+};
+export default Code;
