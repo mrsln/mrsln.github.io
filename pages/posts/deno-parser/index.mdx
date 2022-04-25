@@ -89,10 +89,10 @@ In this section, I’ll try to answer all questions that might arise while readi
 deno run --allow-net index.ts
 ```
 
-`deno` – you have to install Deno before using the script<br/>
-`run` – this an argument for Deno indicating that we want to execute the script<br/>
-`--allow-net` – Deno runs all programs in a sandbox. This means that you can run any script that you have downloaded from the internet without fear that it will harm your computer. If the script needs to change File System or make a network request, Deno will notify you about it. This flag allows the script to communicate via the internet.<br/>
-`index.ts` – the name of the file where the script is living
+**deno** – you have to install Deno before using the script<br/>
+**run** – this is an argument for Deno indicating that we want to execute the script<br/>
+**--allow-net** – Deno runs all programs in a sandbox. This means that you can run any script that you have downloaded from the internet without fear that it will harm your computer. If the script needs to change File System or make a network request, Deno will notify you about it. This flag allows the script to communicate via the internet.<br/>
+**index.ts** – the name of the file where the script is living
 
 ```js
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
@@ -105,9 +105,9 @@ const response = await fetch("https://be.indeed.com/jobs?q=Marketing&lang=en");
 const reply = await response.text();
 ```
 
-Here I am downloading the page using the `fetch` function which is built-in into Deno.
+Here I am downloading the page using the **fetch** function which is built-in into Deno.
 It’s a Web API and I love the fact that Deno has it, whereas in Nodejs you’d need to have a dependency
-that implements it. The `await` keyword is needed here because fetch is returning a promise of a result
+that implements it. The **await** keyword is needed here because fetch is returning a promise of a result
 so we need to wait for the actual result. I call the .text method on the response because I need
 to parse the bytes I got from the server as a string.
 
@@ -115,7 +115,7 @@ to parse the bytes I got from the server as a string.
 const doc = new DOMParser().parseFromString(reply, "text/html")!;
 ```
 
-The variable named `doc` is holding a reference to an object that has methods of querying the document
+The variable named **doc** is holding a reference to an object that has methods of querying the document
 that has been parsed from the earlier server reply.
 
 ```js
@@ -128,13 +128,13 @@ const jobKeys = doc
 
 After running all these lines of code, we end up with a job keys list in the variable called jobKeys.
 A job key is an identifier of the open position in the DB of the website.
-First, I get all HTML elements that have `jobtitle` in their CSS class names.
-They are all link elements, meaning they are anchor elements or `<a />` elements.
-After that, I get the actual address from the `href` attribute.
+First, I get all HTML elements that have **jobtitle** in their CSS class names.
+They are all link elements, meaning they are anchor elements or **<a />** elements.
+After that, I get the actual address from the **href** attribute.
 Next, I take the part of the URL that goes after a question mark.
 This part contains parameters of the URL (e.g. https://example.com/?jk=bar).
 Lastly, I parse the string from the previous step using the built-in URLSearchParams class which gives me
-a method to extract individual values of the parameters, in this case, I get the value of `jk` (job key).
+a method to extract individual values of the parameters, in this case, I get the value of **jk** (job key).
 
 ```js
 const fetchingJobs = jobKeys.map(async (jobKey, i) => {
@@ -208,19 +208,19 @@ An additional query for getting job descriptions and enriching the previous job 
 
 ```js
 async function randomSleep(min: number) {
-  const delay = min + ~~(Math.random() \* 1000);
+  const delay = min + ~~(Math.random() * 1000);
   console.log(`I'm sleeping for ${delay}ms`);
   await new Promise((resolve) => setTimeout(resolve, delay));
 }
 ```
 
-The function that schedules the parsing tasks. It returns a Promise that will be resolved after `min` seconds,
-plus some random milliseconds.
+The function that schedules the parsing tasks. It returns a Promise that will be
+resolved after **min** seconds, plus some random milliseconds.
 
 ## In conclusion
 
-I think this task will always be relevant and it is a cool way to make some side money for junior developers.
-Try not to overthink it in order to hit the deadline.
+I think this task will always be relevant and it is a cool way to make some side
+money for junior developers. Try not to overthink it in order to hit the deadline.
 
 ## Bonus video
 
@@ -229,9 +229,9 @@ Try not to overthink it in order to hit the deadline.
   height="315"
   src="https://www.youtube.com/embed/5uxpZ9JD9WU"
   title="YouTube video player"
-  frameborder="0"
+  frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullscreen
+  allowFullScreen
 ></iframe>
 
 export default ({ children }) => (
