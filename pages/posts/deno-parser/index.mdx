@@ -208,7 +208,7 @@ An additional query for getting job descriptions and enriching the previous job 
 
 ```js
 async function randomSleep(min: number) {
-  const delay = min + ~~(Math.random() \* 1000);
+  const delay = min + ~~(Math.random() * 1000);
   console.log(`I'm sleeping for ${delay}ms`);
   await new Promise((resolve) => setTimeout(resolve, delay));
 }
