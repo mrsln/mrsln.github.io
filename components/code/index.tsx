@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 
+const ARTICLE_DESKTOP_WIDTH = 655;
+
 const Code = ({ children = "", className }) => {
+  const preRef = useRef(null);
+
+  useEffect(() => {
+    function fitPre() {
+      if (document.body.clientWidth < ARTICLE_DESKTOP_WIDTH) {
+        preRef.current.style.width = `${document.body.clientWidth - 30}px`;
+      } else {
+        preRef.current.style.width = "auto";
+      }
+    }
+
+    fitPre();
+    window.addEventListener("resize", fitPre, true);
+    return () => window.removeEventListener("resize", fitPre, true);
+  }, []);
+
   const language = className.replace(/language-/, "");
   return (
     <Highlight
@@ -15,6 +33,7 @@ const Code = ({ children = "", className }) => {
         <pre
           className={`${className} text-left mx-4 my-0 p-2 overflow-scroll`}
           style={style}
+          ref={preRef}
         >
           {tokens.map((line, i) => {
             const lineProps = getLineProps({ line, key: i });
