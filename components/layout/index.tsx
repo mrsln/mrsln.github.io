@@ -18,7 +18,7 @@ export default function Layout({ children, meta }: Props) {
         <title>{meta.title}</title>
       </Head>
 
-      <div className="bg-white flex flex-col w-full items-center pb-12">
+      <div className="bg-white flex flex-col w-full items-center pb-12 m-2 sm:m-0">
         <div>
           <div className="flex py-6 space-x-2">
             <Link href="/">
