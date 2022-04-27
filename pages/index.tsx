@@ -59,9 +59,9 @@ export default function IndexPage() {
                 <h3 className="text-3xl leading-9 font-medium text-gray-800">
                   Blog
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2 -ml-4">
                   {allPostsData.map(({ id, title, subtitle }) => (
-                    <li key={id}>
+                    <li key={id} className="hover:bg-gray-50 p-4 rounded-lg">
                       <Link href={`/posts/${id}`}>
                         <a>
                           <div className="text-indigo-500 font-semibold leading-relaxed tracking-wider uppercase">
