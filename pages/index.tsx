@@ -5,9 +5,15 @@ import Head from "next/head";
 import * as XstateIntro from "./posts/xstate-intro/index.mdx";
 import * as OfflineVideo from "./posts/offline-video/index.mdx";
 import * as DenoParser from "./posts/deno-parser/index.mdx";
+import * as AwsSam from "./posts/aws-sam/index.mdx";
 import NewsletterForm from "../components/newsletter-form";
 
 const allPostsData = [
+  {
+    title: AwsSam.title,
+    subtitle: AwsSam.description,
+    id: "aws-sam",
+  },
   {
     title: DenoParser.title,
     subtitle: DenoParser.description,

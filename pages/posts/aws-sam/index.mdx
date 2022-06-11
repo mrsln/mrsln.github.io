@@ -1,0 +1,272 @@
+import Layout from "../../../components/layout";
+
+export const title = "AWS SAM";
+export const description = "Declarative infra.";
+
+Recently I used AWS SAM on a job and in my pet project. I haven’t worked on the
+backend side of things for a while and it was a nice way to create infrastructure
+compared to things I was dealing with before. In this blurb I’m going to describe
+my early experience with creating infrastructure and writing some business logic.
+
+## What is it?
+
+AWS SAM lets you declaratively describe infrastructure.
+
+## Resource types
+
+SAM lets you create a bunch of resources that will cover needs most of the web apps:
+
+- Lambda for running code
+- Databases
+- File storage
+- Queue
+- CDN
+
+```yaml
+Resources:
+  <ArbitraryId>:
+    Type: AWS::<Known Resource Type>
+    Properties:
+      DifrentResources: “Have different properties”
+```
+
+## Serverless functions
+
+Lambda is the most important building brick that runs the business logic and
+becomes a glue between other resources. For me, the definition of a lambda
+usually looks like this:
+
+```yaml
+Type: AWS::Serverless::Function
+Properties:
+  Handler: src/my-fun.handler
+  Runtime: nodejs14.x
+```
+
+And the src/my-fun.js would look something like this
+
+```yaml
+exports.handler = async (event, context) => { }
+```
+
+### Triggers
+
+Lambda can be used in various ways:
+
+- Creating Rest API
+- Handling Queue messages
+- Handling CDN redirects
+- Reacting to file uploads
+- Reacting to table row changes
+
+#### Rest API
+
+```yaml
+Events:
+  <ArbitraryId>:
+    Type: Api
+    Properties:
+      Path: /<path>
+      Method: post
+```
+
+Few lines of config lets you add a REST API method. Behind the scenes it
+creates API Gateway that configured to call your Lambda function. Now your
+web client or other services can invoke the function using HTTP and get a reply.
+
+### Queue
+
+```yaml
+Events:
+  <ArbitraryId>:
+    Type: SQS
+    Properties:
+      Queue: !Ref MyQueue
+```
+
+This means that your function will be invoked with a message that came to
+MyQueue queue. It’s helpful for creating loosely coupled systems and for
+handling jobs that take too much time to be handled during a REST request.
+
+### CDN
+
+```yaml
+<ArbitraryId>:
+  Type: AWS::CloudFront::Distribution
+  Properties:
+    DistributionConfig:
+      DefaultCacheBehavior:
+        LambdaFunctionAssociations:
+          - EventType: viewer-request
+            LambdaFunctionARN: !Ref RedirectLambdaFunction.Version
+```
+
+You can configure CloudFront to call your lambda in case of a file missing
+in S3 bucket. This is useful for creating files lazily. Note, that this is not
+Event property but rather configured on the CloudFront config.
+
+### S3
+
+```yaml
+Events:
+  <ArbitraryId>:
+    Type: S3
+    Properties:
+      Bucket: !Ref <BucketId>
+      Events: s3:ObjectCreated:*
+```
+
+You should rather rely on S3 triggering your function upon upload completion
+than your web client. This is useful when you need to create a database entry
+for the uploaded file or you need to process the file.
+
+### DynamoDB
+
+```yaml
+Events:
+  <ArbitraryId>:
+    Type: DynamoDB
+    Properties:
+      Stream:
+        "Fn::GetAtt":
+          - <TableId>
+          - StreamArn
+      StartingPosition: TRIM_HORIZON
+      BatchSize: 100
+```
+
+Triggering a Lambda function on changing DynamoDB table might be useful for
+creating loosely coupled system but also I saw a case when it was used in
+conjunction with TTL in order to calculate a new state of an entity.
+
+## Things I missed
+
+It’s easy to start using Lambda and quickly create business value. Having said
+that I would love to see some improvements that will help developers create
+modern scalable solutions from the get go.
+
+### Native Typescript
+
+I have used javascript for my pet project but for the system in anger I used
+Typescript. Typescript lets you write scalable code that can be supported by future teams.
+At the time of implementing my projects, there wasn’t an official approach to this.
+Recently, AWS published a blog [post](https://aws.amazon.com/blogs/compute/building-typescript-projects-with-aws-sam-cli/)
+that describes the new built-in way of doing it. If I were you, I'd start there.
+
+But if you want to follow your own way, you can transpile Typescript using bundlers
+like Webpack. In particular, I was using this
+[tutorial](https://evilmartians.com/chronicles/serverless-typescript-a-complete-setup-for-aws-sam-lambda).
+I like that this approach only uses public SAM API and doesn’t lock all your
+Lambdas to Typescript.
+
+Also, there are projects, rather opinionated ones, that let you use one command
+to build everything like [this one](https://github.com/graphboss/aws-sam-webpack-plugin).
+
+### Not the latest Node.js version
+
+One of the surprising things for me was the fact that AWS Lambda doesn’t support
+the latest version of NodeJS but only 14th and 10th versions. This is not a big
+deal but it caught me off guard when my code failed because of usage of newer
+ECMA syntax.
+
+## Database
+
+Every app needs to have a way to store data permanently. Luckily AWS SAM lets
+you describe infra resources to store data in relational database, as well as
+NoSQL solution.
+
+### NoSQL – DynamoDB
+
+```yaml
+<ArbitraryId>:
+  Type: AWS::Serverless::SimpleTable
+  Properties:
+    PrimaryKey:
+      Name: <ArbitraryId>
+      Type: String
+```
+
+Used it a couple of times. Cheap & fast.
+
+### File Storage
+
+```yaml
+<Name>:
+  Type: AWS::S3::Bucket
+  Properties:
+    BucketName: <ArbitraryIdIfNeeded>
+    CorsConfiguration:
+      CorsRules:
+        - AllowedHeaders:
+            - "*"
+          AllowedMethods:
+            - GET
+            - PUT
+            - POST
+          AllowedOrigins:
+            - "*"
+          MaxAge: "3600"
+```
+
+Simple Storage Service is a service that I used on every project I that was
+powered by AWS. Not surprisingly, in both projects users were uploading media
+files and a lambda was processing them.
+
+### CDN
+
+```yaml
+<ArbitraryId>:
+  Type: AWS::CloudFront::Distribution
+  Properties:
+```
+
+Then, you can create a subdomain for the bucket that is human-readable (e.g.
+files.marsel.name) and loosely coupled (e.g. you can point it to Azure Blob
+Storage in the future).
+
+### RDS
+
+Even though I like SQL for the ability to quickly run queries for data analysis,
+I haven’t used any of the SQL databases. While researching for this article, I
+found out that there is not a simple way to create an RDS instance using AWS SAM.
+What a surprise! Check these out first if you’re interested in creating Aurora
+instance – [1](https://gist.github.com/nathanmalishev/65b3f16c5acb0dc668453675b74298f3),
+[2](https://github.com/aws-samples/aws-aurora-serverless-data-api-sam/blob/master/deploy_scripts/rds_cfn_template.yaml).
+
+## Things I haven’t used
+
+There are many capabilities that I haven't used. In particular SQS, SNS, GraphQL,
+Step Functions.
+
+## Examples
+
+If you ever get stuck, google it or search your case in the following resources:
+
+- [Amazon’s Application Repository](https://serverlessrepo.aws.amazon.com/applications)
+- [Serverless App Examples](https://github.com/amazon-archives/serverless-app-examples/tree/master/javascript)
+
+## Alternatives
+
+### Terraform
+
+It supports several cloud providers but a bit wordy and complex for me.
+
+### Architect
+
+Haven’t used it but heard good things.
+
+## Conclusion
+
+I used it briefly to construct some of the parts of larger systems but I think
+AWS SAM is a great tool to run the whole project’s infrastructure.
+
+export default ({ children }) => (
+  <Layout
+    meta={{
+      title,
+      description,
+    }}
+  >
+    {children}
+  </Layout>
+);
