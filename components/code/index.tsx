@@ -4,7 +4,7 @@ import theme from "prism-react-renderer/themes/nightOwl";
 
 const ARTICLE_DESKTOP_WIDTH = 655;
 
-const Code = ({ children = "", className }) => {
+const Code = ({ children = "", className, ...props }) => {
   const preRef = useRef(null);
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const Code = ({ children = "", className }) => {
   }, []);
 
   const language = className.replace(/language-/, "");
+  console.log({ className, props });
   return (
     <Highlight
       {...defaultProps}
@@ -29,33 +30,35 @@ const Code = ({ children = "", className }) => {
       code={children.trim()}
       language={language}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
-          className={`${className} text-left mx-4 my-0 p-2 overflow-scroll`}
-          style={style}
-          ref={preRef}
-        >
-          {tokens.map((line, i) => {
-            const lineProps = getLineProps({ line, key: i });
-            const styledLineProps = {
-              ...lineProps,
-              className: `${lineProps.className} table-row`,
-            };
-            return (
-              <div key={i} {...styledLineProps}>
-                <span className="table-cell text-right pr-4 select-none opacity-50 mr-4">
-                  {i + 1}
-                </span>
-                <span className="table-cell">
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </span>
-              </div>
-            );
-          })}
-        </pre>
-      )}
+      {({ className, style, tokens, getLineProps, getTokenProps }) => {
+        return (
+          <pre
+            className={`${className} text-left mx-4 my-0 p-2 overflow-scroll`}
+            style={style}
+            ref={preRef}
+          >
+            {tokens.map((line, i) => {
+              const lineProps = getLineProps({ line, key: i });
+              const styledLineProps = {
+                ...lineProps,
+                className: `${lineProps.className} table-row`,
+              };
+              return (
+                <div key={i} {...styledLineProps}>
+                  <span className="table-cell text-right pr-4 select-none opacity-50 mr-4">
+                    {i + 1}
+                  </span>
+                  <span className="table-cell">
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </span>
+                </div>
+              );
+            })}
+          </pre>
+        );
+      }}
     </Highlight>
   );
 };

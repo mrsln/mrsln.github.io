@@ -1,4 +1,6 @@
 import Layout from "../../../components/layout";
+import FullCode from "../../../components/full-code";
+import AllResourcesExample from "./examples/10-all-resources.yaml";
 
 export const title = "AWS SAM";
 export const description = "Declarative infra.";
@@ -22,13 +24,7 @@ SAM lets you create a bunch of resources that will cover needs most of the web a
 - Queue
 - CDN
 
-```yaml
-Resources:
-  <ArbitraryId>:
-    Type: AWS::<Known Resource Type>
-    Properties:
-      DifrentResources: “Have different properties”
-```
+<FullCode code={AllResourcesExample} />
 
 ## Serverless functions
 

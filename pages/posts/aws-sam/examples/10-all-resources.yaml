@@ -1,0 +1,5 @@
+Resources:
+  <ArbitraryId>:
+    Type: AWS::<Known Resource Type>
+    Properties:
+      DifrentResources: “Have different properties”
